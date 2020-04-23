@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_risposta"
+        android:icon="@drawable/nobackground_palla120x120"
+        android:title="@string/title_risposta" />
+
+    <item
+        android:id="@+id/navigation_sign"
+        android:icon="@drawable/ic_login"
+        android:title="@string/title_login" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/nobackground_mano"
+        android:title="@string/title_credits" />
+</menu>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context="pieronegri.rispostestronze.ui.controller.Login"
+    >
+
+    <TextView
+        android:id="@+id/Txt_signin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/TxtSizeBig"
+        android:text="@string/Txt_signIn_invitation"
+        />
+    <ImageButton
+        android:id="@+id/signIn"
+        android:layout_width="@dimen/button_height_large"
+        android:layout_height="@dimen/button_height_large"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/nobackground_chiave_200x200"
+        android:background="@color/colorBackground"
+        android:contentDescription="@string/DecriptionBtnChiave"/>
+
+    <TextView
+        android:id="@+id/Txt_displayMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/TxtSizeBig" />
+
+    <ImageButton
+        android:id="@+id/signOut"
+        android:layout_width="@dimen/button_width_small"
+        android:layout_height="@dimen/button_width_small"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="@dimen/button_marginBottom"
+        android:contentDescription="@string/signOut_invitation"
+        android:src="@drawable/logout80x80" />
+
+
+</FrameLayout>

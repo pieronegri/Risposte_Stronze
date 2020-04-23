@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">RisposteStronze</string>
+
+    <string name="FACEBOOK_APP_ID">2589863557923893</string>
+    <string name="facebook_app_id">2589863557923893</string>
+    <string name="CLIENT_TOKEN">1a7165ff2203ea8405e926ef5fd271cf</string>
+    <string name="default_notification_channel_id">defaultChannelId</string>
+    <string name="EXTRA_MESSAGE">pieronegri.RisposteStronze.MESSAGE</string>
+    <string name="InProgress">In Progress&#8230;</string>
+    <string name="CALLING_ACTIVITY">"CALLING_ACTIVITY"</string>
+    <string name="RispostaTemplate">"%1$s.\n\n%2$s"</string>
+    <string name="DBnodeRisposta">"Risposta"</string>
+    <string name="DBnodeUser">"User"</string>
+    <string name="DBnodeDate">"Date"</string>
+    <string name="DBnodeTransaction">"Transaction"</string>
+    <string name="DBnodePresence">"Presence"</string>
+    <string name="DBnodeLastActiveOn">"LastActiveOn"</string>
+    <string name="LogCanceledUserSign">"Log canceled"</string>
+    <string name="LogUnreachableUserSignState">"Sign in is in unreachable state"</string>
+    <string name="LogUnknonwRequestCode">"Unknown requestCode"</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="title_activity_firebase_u_i">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+
+    <string name="welcome">""</string>
+    <string name="goToMain">"goTo"</string>
+    <string name="tryAgain">"Ooops&#8230;qualcosa è andato storto, riprova!"</string>
+    <string name="goToRisposta">"Risposta"</string>
+    <string name="Txt_signIn_invitation">Registrati cliccando sulla chiave</string>
+    <string name="logInError">"Devi registrarti prima di iniziare"</string>
+    <string name="signOut_invitation">Log out</string>
+    <string name="logOutSuccess">"log out eseguito"</string>
+    <string name="logOutError">"la tua utenza è già stata deregistrata"</string>
+    <string name="logOutOKMessage">"Log out eseguito correttamente"</string>
+    <string name="scegliAltroUtente">"Scegli un altro Utente"</string>
+    <string name="logInKOMessage">"errore nell'autenticazione"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_bottom_navigation">RisposteStronze</string>
+    <string name="title_risposta">Risposte</string>
+    <string name="title_login">LogIn</string>
+    <string name="title_credits">Credits</string>
+    <string name="Txt_Credits">
+        Manda una mail a pieronegri@gmail.com
+        per ordinare la tua copia del libro.
+
+    </string>
+    <string name="Txt_Ordina">
+        Ordina una copia cartacea del libro!
+    </string>
+    <string name="Txt_SiamoSuFacebook">
+        Siamo su Facebook
+    </string>
+    <string name="Txt_Disegni">
+        Disegni di lisefischer.
+    </string>
+    <string name="DescriptionBtnExit">Esci</string>
+    <string name="DecriptionBtnPalla">genera la risposta</string>
+    <string name="DecriptionBtnChiave">LogInDescription</string>
+    <string name="DecriptionBtnFBPage">facebook page</string>
+    <string name="DecriptionBtnOrder">LogIn</string>
+
+    <string name="mailTo">pieronegri@gmail.com</string>
+    <string name="mailSubject">"mandami una copia del piccolo libro delle risposte stronze!"</string>
+    <string name="mailBody">" scrivi qui il tuo indirizzo: "+"\npuoi effettuare un paypal a pieronegri@gmail.com\n" +
+                            " oppure un bonifico a xxxx\n" +
+                    "la spedizione avverrà dopo il pagamento"</string>
+    <string name="UrlFBPage">https://rispostestronze.page.link/risposte-stronze-facebook</string>
+    <string name="UrlOrder">https://rispostestronze.page.link/ordina-libro</string>
+    <string name="UrlFBPageLiseFischer">https://www.facebook.com/lisebethfischer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
+
