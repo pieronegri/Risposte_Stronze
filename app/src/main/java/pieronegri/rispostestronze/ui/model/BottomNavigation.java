@@ -7,7 +7,6 @@ import androidx.lifecycle.MutableLiveData;
 import pieronegri.rispostestronze.data_source.Firebase.FBNodeStructure;
 import pieronegri.rispostestronze.data_source.Firebase.FBRepository;
 import pieronegri.rispostestronze.data_source.Firebase.FBTransaction;
-import pieronegri.rispostestronze.data_source.Firebase._ViewModel;
 import pieronegri.rispostestronze.data_source.Node.Risposta;
 import pieronegri.rispostestronze.data_source.Firebase.FBRepositoryCallback;
 import pieronegri.rispostestronze.R;
@@ -35,7 +34,7 @@ public class BottomNavigation extends _ViewModel {
     private MutableLiveData<String> ColorMutableLiveData = null;
     private FirebaseRemoteConfig remoteConfig;
     private String  welcomeMessage;
-    private FBRepositoryCallback rispostaFBRepositoryCallback;
+    private FBRepositoryCallback  rispostaFBRepositoryCallback;
 
     public BottomNavigation() {
         this.repository = new FBRepository<Risposta>(FBNodeStructure.Risposta, true, true);
@@ -75,10 +74,10 @@ public class BottomNavigation extends _ViewModel {
     private FirebaseRemoteConfig getRemoteConfig(){
         if(remoteConfig ==null){
             remoteConfig =FirebaseRemoteConfig.getInstance();
-            remoteConfig.setConfigSettings(new FirebaseRemoteConfigSettings.Builder()
-                    .setDeveloperModeEnabled(true)
+            FirebaseRemoteConfig.getInstance().setConfigSettingsAsync(new FirebaseRemoteConfigSettings.Builder()
+                    .setMinimumFetchIntervalInSeconds (10)
                     .build());
-            remoteConfig.getInstance().setDefaults(R.xml.remote_config_defaults);
+            FirebaseRemoteConfig.getInstance().setDefaultsAsync(R.xml.remote_config_defaults);
         }
         return remoteConfig;
     }
@@ -88,7 +87,7 @@ public class BottomNavigation extends _ViewModel {
             @Override
             public void onComplete(@NonNull Task<Void> task){
                 if(task.isSuccessful()){
-                    remoteConfig.activateFetched();
+                    remoteConfig.activate();
                     setColorMutableLiveData();
                 }
             }});

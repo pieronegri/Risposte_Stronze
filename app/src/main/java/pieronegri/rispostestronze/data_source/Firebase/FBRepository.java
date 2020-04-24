@@ -8,8 +8,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class FBRepository<Model> {
 
-    protected DatabaseReference databaseReference;
-    protected FBRepositoryCallback<Model> firebaseCallback;
+    private DatabaseReference databaseReference;
+    private FBRepositoryCallback<Model> firebaseCallback;
 
 
     private String TAG = FBRepository.class.getName();

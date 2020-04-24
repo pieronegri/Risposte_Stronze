@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /*
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                 .detectDiskReads()
                 .detectDiskWrites()
@@ -70,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
                 .penaltyLog()
                 .penaltyDeath()
                 .build());
+
+         */
         super.onCreate(savedInstanceState);
         new FBRepository(FBNodeStructure.Risposta);
         setContentView(R.layout.activity_bottom_navigation);

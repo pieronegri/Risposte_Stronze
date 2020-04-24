@@ -8,9 +8,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class FBEventListener<Model> implements ValueEventListener {
 
-    protected FBRepositoryCallback<Model> firebaseCallback;
+    private FBRepositoryCallback<Model> firebaseCallback;
 
-    public FBEventListener(FBRepositoryCallback<Model> firebaseCallback) {
+    FBEventListener(FBRepositoryCallback<Model> firebaseCallback) {
         this.firebaseCallback = firebaseCallback;
     }
 

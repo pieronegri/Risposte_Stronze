@@ -7,27 +7,27 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import pieronegri.rispostestronze.R;
 
 public class FBRemoteConfig {
-    private FirebaseRemoteConfig firebaseRemoteConfig;
+    private FirebaseRemoteConfig remoteConfig;
     private OnCompleteListener<Void> listener;
 
     public FBRemoteConfig(OnCompleteListener<Void> listener) {
-        firebaseRemoteConfig=FirebaseRemoteConfig.getInstance();
-        firebaseRemoteConfig.setConfigSettings(new FirebaseRemoteConfigSettings.Builder()
-                .setDeveloperModeEnabled(true)
+        remoteConfig =FirebaseRemoteConfig.getInstance();
+        FirebaseRemoteConfig.getInstance().setConfigSettingsAsync(new FirebaseRemoteConfigSettings.Builder()
+                .setMinimumFetchIntervalInSeconds (10)
                 .build());
-        firebaseRemoteConfig.getInstance().setDefaults(R.xml.remote_config_defaults);
+        FirebaseRemoteConfig.getInstance().setDefaultsAsync(R.xml.remote_config_defaults);
         setListener(listener);
         setCurrentConfig();
     }
     public FirebaseRemoteConfig getCurrentConfig() {
-        return firebaseRemoteConfig;
+        return remoteConfig;
     }
-    public void setListener(OnCompleteListener<Void> listener){
+    private void setListener(OnCompleteListener<Void> listener){
         this.listener =listener;
     }
 
-    public void setCurrentConfig() {
-        firebaseRemoteConfig.fetch(0).addOnCompleteListener(listener);
+    protected void setCurrentConfig() {
+        remoteConfig.fetch(0).addOnCompleteListener(listener);
     }
 
 }

@@ -15,7 +15,7 @@ public class FBTransaction extends FBRepository {
     private pieronegri.rispostestronze.data_source.Node.Date Date;
     private pieronegri.rispostestronze.data_source.Node.Risposta Risposta;
     private pieronegri.rispostestronze.data_source.Node.User User;
-    private HashMap updateObject = new HashMap<>();
+    private HashMap<String,String> updateObject = new HashMap<>();
 
     public FBTransaction(String rName, String rValue) {
         super(FBNodeStructure.Transaction);//rootnode
@@ -26,6 +26,7 @@ public class FBTransaction extends FBRepository {
     }
 
     private void setUpdateObject() {
+
         updateObject.put("DateName", String.valueOf(this.Date.getName()));
         updateObject.put("DateValue", this.Date.getValue());
         updateObject.put("RispostaValue", this.Risposta.getValue());

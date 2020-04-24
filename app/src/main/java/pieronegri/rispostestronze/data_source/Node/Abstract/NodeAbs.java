@@ -39,7 +39,7 @@ public abstract class NodeAbs<Tn, Tv> {
         setPath();
     }
 
-    public void setTimeStamp() {
+    protected void setTimeStamp() {
         SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
         this.timeStamp = System.currentTimeMillis();
         this.readableTimeStamp = formatter.format(timeStamp);

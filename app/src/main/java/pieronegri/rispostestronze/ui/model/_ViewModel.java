@@ -1,4 +1,4 @@
-package pieronegri.rispostestronze.data_source.Firebase;
+package pieronegri.rispostestronze.ui.model;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;

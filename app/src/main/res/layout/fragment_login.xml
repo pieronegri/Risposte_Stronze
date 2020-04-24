@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
     tools:context="pieronegri.rispostestronze.ui.controller.Login"
     >
 
@@ -43,7 +42,7 @@
         android:layout_height="@dimen/button_width_small"
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="@dimen/button_marginBottom"
-        android:contentDescription="@string/signOut_invitation"
+        android:contentDescription="@string/logOut_invitation"
         android:src="@drawable/logout80x80" />
 
 

@@ -16,7 +16,6 @@ import java.util.Map;
 
 public class Utility {
     private static final String TAG = Utility.class.getName();
-    private static FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
     private static String userOnLine="%1$s is online";
     private static String noSignal="no signal available, please try later";
     private static String SetOnLinePresenceError="can not call the method if no user is signed";
@@ -24,7 +23,6 @@ public class Utility {
     }
 
     public static void setCurrentUser() {
-        currentUser = FirebaseAuth.getInstance().getCurrentUser();
         try {
             SetOnLinePresence();
         } catch (Exception e) {
@@ -46,7 +44,7 @@ public class Utility {
             throw new Exception(SetOnLinePresenceError);
         }
         try {
-            Log.w(TAG, String.format(userOnLine, currentUser.getUid()));//if null throws exception
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             Map<String, Object> childUpdates = new HashMap<>();
             Map<String, Boolean> online = new HashMap<>();
@@ -77,13 +75,10 @@ public class Utility {
     }
 
     public static Boolean isUserSigned(FirebaseUser currentUser) {
-        try {
-            currentUser.getDisplayName(); //if not sign there is nothing to signOut
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null) {
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
         }
+        return false;
     }
 
     public static void SetOnLinePresence(FirebaseUser currentUser, FirebaseDatabase database) throws Exception {
@@ -93,7 +88,7 @@ public class Utility {
         try {
             String message = String.format(userOnLine, currentUser.getDisplayName()); //if null throws exception
             Log.w(TAG, message);
-            FBMessagingServiceIMPL.getToken();
+            FBMessagingServiceUtil.setToken();
             Map<String, Object> childUpdates = new HashMap<>();
             Map<String, Boolean> online = new HashMap<>();
             online.put("online", true);
