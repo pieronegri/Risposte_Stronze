@@ -1,13 +1,19 @@
 <resources>
     <string name="app_name">RisposteStronze</string>
-
-    <string name="FACEBOOK_APP_ID">2589863557923893</string>
-    <string name="facebook_app_id">2589863557923893</string>
-    <string name="CLIENT_TOKEN">1a7165ff2203ea8405e926ef5fd271cf</string>
+    <!--
+        <string name="FACEBOOK_APP_ID">2589863557923893</string>
+        <string name="facebook_app_id">2589863557923893</string>
+       <string name="CLIENT_TOKEN">1a7165ff2203ea8405e926ef5fd271cf</string>
+       <string name="EXTRA_MESSAGE">pieronegri.RisposteStronze.MESSAGE</string>
+       <string name="LogUnreachableUserSignState">"Sign in is in unreachable state"</string>
+    <string name="Txt_SiamoSuFacebook">Siamo su Facebook</string>
+       <string name="logInKOMessage">"errore nell'autenticazione"</string>
+       <string name="title_activity_bottom_navigation">RisposteStronze</string>
+       -->
     <string name="default_notification_channel_id">defaultChannelId</string>
-    <string name="EXTRA_MESSAGE">pieronegri.RisposteStronze.MESSAGE</string>
-    <string name="RispostaTemplate">"%1$s.\n\n%2$s"</string>
-    <string name="LogUnreachableUserSignState">"Sign in is in unreachable state"</string>
+
+
+
 
     <string name="Txt_signIn_invitation">Registrati cliccando sulla chiave</string>
     <string name="logInError">"Devi registrarti prima di iniziare"</string>
@@ -15,18 +21,12 @@
     <string name="logOutSuccess">"log out eseguito"</string>
     <string name="logOutError">"la tua utenza è già stata deregistrata"</string>
     <string name="logOutOKMessage">"Log out eseguito correttamente"</string>
-    <string name="logInKOMessage">"errore nell'autenticazione"</string>
-    <string name="title_activity_bottom_navigation">RisposteStronze</string>
+
+
     <string name="title_risposta">Risposte</string>
     <string name="title_login">LogIn</string>
     <string name="title_credits">Credits</string>
 
-    <string name="Txt_Ordina">
-        Ordina una copia cartacea del libro!
-    </string>
-    <string name="Txt_SiamoSuFacebook">
-        Siamo su Facebook
-    </string>
     <string name="Txt_Disegni">
         Disegni di lisefischer.
     </string>

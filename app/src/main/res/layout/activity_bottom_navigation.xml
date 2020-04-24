@@ -4,13 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pieronegri.rispostestronze.ui.controller.MainActivity">
+    tools:context="pieronegri.rispostestronze.ui.controller.MainActivity"
+    android:id="@+id/container">
 
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
@@ -34,5 +30,4 @@
             android:background="@color/colorBackground"
             android:contentDescription="@string/DescriptionBtnExit"
             app:srcCompat="@drawable/esci" />
-    </FrameLayout>
 </FrameLayout>

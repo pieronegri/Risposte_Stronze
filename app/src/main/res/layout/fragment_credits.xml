@@ -14,7 +14,7 @@
         android:layout_gravity="center|top"
         android:layout_marginTop="40dp"
         android:src="@drawable/ordina"
-        android:contentDescription="@string/Txt_Ordina"
+        android:contentDescription="@string/DecriptionBtnOrder"
         />
      <ImageView
         android:id="@+id/imageView2"

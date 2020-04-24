@@ -12,7 +12,7 @@
         android:title="@string/title_login" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_login"
         android:icon="@drawable/nobackground_mano"
         android:title="@string/title_credits" />
 </menu>

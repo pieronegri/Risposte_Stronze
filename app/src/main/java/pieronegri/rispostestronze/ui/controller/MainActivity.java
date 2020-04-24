@@ -1,7 +1,6 @@
 package pieronegri.rispostestronze.ui.controller;
 
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.navigation_sign:
                                 open(Login.newInstance());
                                 return true;
-                            case R.id.navigation_dashboard:
+                            case R.id.navigation_login:
                                 open(Credits.newInstance());
                                 return true;
                         }

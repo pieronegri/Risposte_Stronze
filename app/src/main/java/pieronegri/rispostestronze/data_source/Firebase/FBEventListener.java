@@ -6,11 +6,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
-public class FBEventListener<Model> implements ValueEventListener {
+public class FBEventListener/*<Model>*/ implements ValueEventListener {
 
-    private FBRepositoryCallback<Model> firebaseCallback;
+    private FBRepositoryCallback/*<Model>*/ firebaseCallback;
 
-    FBEventListener(FBRepositoryCallback<Model> firebaseCallback) {
+    FBEventListener(FBRepositoryCallback/*<Model>*/ firebaseCallback) {
         this.firebaseCallback = firebaseCallback;
     }
 

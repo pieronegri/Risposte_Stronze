@@ -6,15 +6,15 @@ import com.google.firebase.database.IgnoreExtraProperties;
 
 import org.jetbrains.annotations.NotNull;
 
-public class FBRepository<Model> {
+public class FBRepository/*<Model>*/ {
 
     private DatabaseReference databaseReference;
-    private FBRepositoryCallback<Model> firebaseCallback;
+    private FBRepositoryCallback/*<Model>*/ firebaseCallback;
 
 
     private String TAG = FBRepository.class.getName();
     private String rootNode;
-    private FBEventListener<Model> listener;
+    private FBEventListener/*<Model>*/ listener;
 
     public FBRepository() {
         Build(FBNodeStructure.Risposta, true, true);
@@ -38,9 +38,9 @@ public class FBRepository<Model> {
         setFirebaseDatabaseReference();
     }
 
-    public void addListener(FBRepositoryCallback<Model> firebaseCallback) {
+    public void addListener(FBRepositoryCallback/*<Model>*/ firebaseCallback) {
         this.firebaseCallback = firebaseCallback;
-        this.listener = new FBEventListener<Model>(firebaseCallback);
+        this.listener = new FBEventListener/*<Model>*/(firebaseCallback);
         databaseReference.addValueEventListener(listener);
     }
 

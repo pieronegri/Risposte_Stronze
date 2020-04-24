@@ -37,7 +37,7 @@ public class BottomNavigation extends _ViewModel {
     private FBRepositoryCallback  rispostaFBRepositoryCallback;
 
     public BottomNavigation() {
-        this.repository = new FBRepository<Risposta>(FBNodeStructure.Risposta, true, true);
+        this.repository = new FBRepository/*<Risposta>*/(FBNodeStructure.Risposta, true, true);
         getDBRisposte();
         updateRemoteConfig();
     }
