@@ -36,10 +36,27 @@ public class BottomNavigation extends _ViewModel {
     private String  welcomeMessage;
     private FBRepositoryCallback  rispostaFBRepositoryCallback;
 
+
     public BottomNavigation() {
         this.repository = new FBRepository/*<Risposta>*/(FBNodeStructure.Risposta, true, true);
         getDBRisposte();
         updateRemoteConfig();
+    }
+
+    @Override
+    public void onCleared(){
+        super.onCleared();
+        child=null;
+        DataSnapshotMutableLiveData = null;
+        _RispostaMutableLiveData=null;
+        repository.clearListener();
+        remoteConfig=null;
+        myDataSnapshot=null;
+        MessageMutableLiveData = null;
+        ColorMutableLiveData= null;
+        rispostaFBRepositoryCallback=null;
+        welcomeMessage=null;
+        remoteConfig=null;
     }
 
     private LiveData<List<Risposta>> getDBRisposte() {

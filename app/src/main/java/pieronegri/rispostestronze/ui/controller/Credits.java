@@ -10,6 +10,8 @@ import android.view.View;
 
 import androidx.fragment.app.Fragment;
 
+import org.jetbrains.annotations.NotNull;
+
 import pieronegri.rispostestronze.R;
 
 /**
@@ -33,7 +35,7 @@ private String TAG= Credits.class.getName();
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (!isUserSigned()) {
             bottomNavigationView.setSelectedItemId(R.id.navigation_sign);

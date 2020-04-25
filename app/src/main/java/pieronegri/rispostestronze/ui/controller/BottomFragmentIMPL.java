@@ -6,9 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelStoreOwner;
 
 
 import pieronegri.rispostestronze.R;
@@ -24,9 +27,9 @@ public class BottomFragmentIMPL extends BottomFragmentABS {
     protected static Integer signFragmentId = R.id.navigation_sign;
     protected static Integer bottomNavigationId = R.id.bottom_navigation;
 
-    BottomNavigationView bottomNavigationView;
+    BottomNavigationView bottomNavigationView = null;
     private Integer layoutId = null;
-    BottomNavigation model;
+    BottomNavigation model=null;
 
     public BottomFragmentIMPL() {
     }
@@ -37,7 +40,7 @@ public class BottomFragmentIMPL extends BottomFragmentABS {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        model = new ViewModelProvider(this).get(BottomNavigation.class);
+
     }
     public BottomFragmentIMPL(@NotNull Integer bottomNavigationId, @NotNull Integer signFragmentId, @NotNull Integer layoutId) {
         signFragmentId = bottomNavigationId;
@@ -46,12 +49,14 @@ public class BottomFragmentIMPL extends BottomFragmentABS {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NotNull @NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view,savedInstanceState);
-        bottomNavigationView = getActivity().findViewById(bottomNavigationId);
+        if(model==null) {
+            model = new ViewModelProvider(this).get(BottomNavigation.class);
+        }
         if (bottomNavigationView == null) {
             try {
-                throw new Exception("I did not find such bottomNavigationId " + bottomNavigationId);
+                bottomNavigationView = getActivity().findViewById(bottomNavigationId);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -76,12 +81,10 @@ public class BottomFragmentIMPL extends BottomFragmentABS {
     protected Boolean isUserSigned() {
         return Utility.isUserSigned();
     }
-
-
-    public void open(Fragment f) {
-        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.container, f);
-        transaction.addToBackStack(null);
-        transaction.commit();
+    @Override
+    public void onDestroyView(){
+        super.onDestroyView();
+        bottomNavigationView=null;
     }
-}
+
+ }

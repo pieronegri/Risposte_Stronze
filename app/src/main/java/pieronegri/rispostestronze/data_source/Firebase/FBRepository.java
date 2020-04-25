@@ -38,6 +38,11 @@ public class FBRepository/*<Model>*/ {
         setFirebaseDatabaseReference();
     }
 
+    public void clearListener(){
+        databaseReference.removeEventListener(listener);
+        this.firebaseCallback = null;
+        this.listener=null;
+    }
     public void addListener(FBRepositoryCallback/*<Model>*/ firebaseCallback) {
         this.firebaseCallback = firebaseCallback;
         this.listener = new FBEventListener/*<Model>*/(firebaseCallback);

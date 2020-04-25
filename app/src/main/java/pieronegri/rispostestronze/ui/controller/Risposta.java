@@ -10,12 +10,13 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 
+import org.jetbrains.annotations.NotNull;
+
 import pieronegri.rispostestronze.R;
 
 
 public class Risposta extends BottomFragmentIMPL {
     private static final String TAG = Login.class.getName();
-    private android.animation.Animator Animator;
 
     public Risposta() throws Exception {
         super(R.layout.fragment_risposta);
@@ -28,9 +29,14 @@ public class Risposta extends BottomFragmentIMPL {
     static Risposta newInstance() throws Exception {
         return newInstance("", "");
     }
-
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onDestroyView(){
+        super.onDestroyView();
+
+
+    }
+    @Override
+    public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (!isUserSigned()) {
             bottomNavigationView.setSelectedItemId(R.id.navigation_sign);
@@ -45,7 +51,7 @@ public class Risposta extends BottomFragmentIMPL {
                 textView.setText(newMessage);
             }
         };
-        model.getMessageMutableLiveData().observe(requireActivity(), RisposteObserver);
+        model.getMessageMutableLiveData().observe(getViewLifecycleOwner(), RisposteObserver);
 
         final Observer<String> ColObserver = new Observer<String>() {
             @Override
@@ -53,7 +59,7 @@ public class Risposta extends BottomFragmentIMPL {
                 textView.setTextColor(Color.parseColor(newColor));
             }
         };
-        model.getColorMutableLiveData().observe(requireActivity(), ColObserver);
+        model.getColorMutableLiveData().observe(getViewLifecycleOwner(), ColObserver);
     }
 
     private void getRisposta(View v) {

@@ -22,6 +22,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,7 +36,6 @@ public class Login extends BottomFragmentIMPL {
     private static String TAG = Login.class.getName();
     private static final int RC_SIGN_IN = 123;
     private static String currentSingIn = "Sei registrato come %1$s";
-    private TextView t;
     private View.OnClickListener myOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -55,7 +56,7 @@ public class Login extends BottomFragmentIMPL {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here
         // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
         super.onViewCreated(view, savedInstanceState);
@@ -64,7 +65,7 @@ public class Login extends BottomFragmentIMPL {
         signIn.setOnClickListener(myOnClickListener);
         ImageButton signOut = view.findViewById(R.id.signOut);
         signOut.setOnClickListener(myOnClickListener);
-        t = view.findViewById(R.id.Txt_displayMessage);
+        TextView t = view.findViewById(R.id.Txt_displayMessage);
 
         try{
             t.setText(String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()));
@@ -142,6 +143,7 @@ public class Login extends BottomFragmentIMPL {
             }
             try{
                     Utility.setCurrentUser();
+                    TextView t = getView().findViewById(R.id.Txt_displayMessage);
                     t.setText(String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()));
                     Menu menu = bottomNavigationView.getMenu();
                     bottomNavigationView.setSelectedItemId(R.id.navigation_risposta);
@@ -157,5 +159,11 @@ public class Login extends BottomFragmentIMPL {
                 // response.getError().getErrorCode() and handle the error.
                 // ...
             }
+    }
+
+    @Override
+    public void onDestroyView(){
+        super.onDestroyView();
+        myOnClickListener=null;
     }
 }
