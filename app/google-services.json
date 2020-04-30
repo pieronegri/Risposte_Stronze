@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1061276011762-f3r2v7tud1sfuuii6i2kglmj2kimqhro.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pieronegri.RisposteStronze",
+            "certificate_hash": "bdf325ca115df0a538b7515d0fd043e5a94cf2ba"
+          }
+        },
+        {
           "client_id": "1061276011762-qpfbnj9ksnvl973gdpcld89b4k1206fm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
