@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context="pieronegri.RisposteStronze.ui.controller.Risposta">
+
+    <TextView
+        android:id="@+id/Txt_displayMessage"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=""
+        android:textAlignment="center"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginStart="@dimen/margin_small"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/TxtSizeVeryBig"/>
+    <TextView
+        android:id="@+id/Txt_welcomeMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAlignment="center"
+        android:gravity="center|end"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/margin_small"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/TxtSizeVeryBig"/>
+
+    <ImageButton
+        android:id="@+id/Btn_getNewMessage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center|start"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/nobackground_palla200x200"
+        android:clickable="true"
+        android:contentDescription="@string/DescBtnPalla"
+        android:focusable="true"
+        android:textSize="@dimen/TxtSizeBig" />
+
+    <ProgressBar
+        android:id="@+id/ProgressBar_cyclic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:minWidth="50dp"
+        android:minHeight="50dp"
+        android:visibility="gone" />
+
+
+
+</FrameLayout>

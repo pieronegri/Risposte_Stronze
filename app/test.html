@@ -1,0 +1,115 @@
+<legend>Dati Luogo di Presa e di consegna</legend>
+<div id="googleDiv">
+    <div id="originDestinationSelection" class="form">
+        <div class="form-group"><p><strong>Luogo di presa</strong></p>
+            <select id="origin-select" class="form-control" data-role="fillInAddress"></select>
+            <button type="button" class="btn btn-danger" id="originAutocompleteId" data-role="enableInput" data-target="origin-input">non ho trovato luogo di presa</button>
+        </div>
+        <div class="form-group"><p><strong>Luogo di consegna</strong></p>
+            <select id="destination-select"  class="form-control" data-role="fillInAddress">
+            </select>
+            <button type="button" class="btn btn-danger" id="destinationAutocompleteId" data-role="enableInput" data-target="destination-input">non ho trovato luogo di consegna</button>
+        </div>
+    </div>
+    <div id="output" class="form">
+        <div class="form-row">
+            <div class="col-4">
+            <div id="origin-address" class="origin-address-div">
+                <div class="form-group">
+                    <label class="col-form-label" for="origin-id-company">Presa</label>
+                    <input  class="form-control" id="origin-id-company" data-role="company" ></input>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="origin-id-route">Indirizzo</label>
+                    <input  class="form-control" id="origin-id-route" data-role="route addressMasterData" disabled="true" readonly="readonly"></input>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="origin-id-street_number">Numero civico</label>
+                    <input  class="form-control" id="origin-id-street_number" data-role="street_number addressMasterData" disabled="true" readonly="readonly"></input>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="origin-id-locality">Città</label>
+                    <input class="form-control" id="origin-id-locality" data-role="locality addressMasterData" disabled="true" readonly="readonly"></input>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="origin-id-administrative_area_level_1">Regione</label>
+                    <input class="form-control" id="origin-id-administrative_area_level_1" data-role="administrative_area_level_1 addressMasterData" disabled="true" readonly="readonly"></input>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="origin-id-postal_code" >CAP</label>
+                    <input class="form-control" id="origin-id-postal_code" data-role="postal_code addressMasterData" disabled="true" readonly="readonly"></input>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="origin-id-country">Nazione</label>
+                    <input class="form-control" id="origin-id-country"  data-role="country addressMasterData" disabled="true" readonly="readonly"></input>
+                </div>
+            </div>
+        </div>
+            <div class="col-4">
+            <div id="destination-address" class="origin-address-div">
+                <div class="form-group">
+                    <label class="col-form-label" for="destination-id-company">Consegna</label>
+                    <input  class="form-control" id="destination-id-company" data-role="company" ></input>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="destination-id-route">Indirizzo</label>
+                    <input  class="form-control" id="destination-id-route" data-role="route addressMasterData" disabled="true" readonly="readonly"></input>
+                </div>
+                <div class="form-group">
+                    <label  class="col-xs-12 col-form-label" for="destination-id-street_number">Numero Civico</label>
+                    <input  class="form-control" id="destination-id-street_number" data-role="street_number addressMasterData" disabled="true" readonly="readonly"></input>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="destination-id-locality">Città</label>
+                    <input class="form-control" id="destination-id-locality" data-role="locality addressMasterData" disabled="true" readonly="readonly"></input>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="destination-id-administrative_area_level_1">Regione</label>
+                    <input class="form-control" id="destination-id-administrative_area_level_1" data-role="administrative_area_level_1 addressMasterData" disabled="true" readonly="readonly"></input>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="destination-id-postal_code">CAP</label>
+                    <input class="form-control" id="destination-id-postal_code" data-role="postal_code addressMasterData" disabled="true" readonly="readonly"></input>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="destination-id-country">Nazione</label>
+                    <input class="form-control" id="destination-id-country"  data-role="country addressMasterData" disabled="true" readonly="readonly"></input>
+                </div>
+            </div>
+        </div>
+            <div class="col-4">
+            <div id="distanceAndDuration" class="form-group">
+                <label class="col-md-12 form-label" for="destination-note">Distanza andata e ritorno</label>
+                <div class="col-md-4">
+                    <input class="form-control" type="text" id="distance-output" value="" />
+                </div>
+                <div id="Id_divConfermaLuoghi" class="col-md-offset-8 ms-hide ">
+                    <a href="#trasportiDiv" role="button" id="Id_confermaLocalita" class="btn btn-info btn-lg" >Prosegui</a>
+                </div>
+            </div>
+            <div id="map-holder"  style="width:600px;height:300px;">
+                    <input id="origin-input" style="max-width:200px;" class="controls" type="text" placeholder="inserisci luogo di presa" disabled="disabled">
+                    <input id="destination-input" style="max-width:200px;" class="controls" type="text" placeholder="inserisci luogo di consegna" disabled="disabled">
+                    <div id="labelForMap">
+                        <strong>Utilizza queste caselle se non trovi i tuoi luoghi</strong>
+                    </div>
+                    <div id="map" style="width:400px;height:200px;"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+                    <!--[if gte mso 9]><xml>
+    <mso:CustomDocumentProperties>
+        <mso:_dlc_DocId msdt:dt="string">DKAW657M5JWJ-9937882-30</mso:_dlc_DocId>
+        <mso:_dlc_DocIdItemGuid msdt:dt="string">1cce3a87-2528-4fef-bc28-0c35164077c3</mso:_dlc_DocIdItemGuid>
+        <mso:_dlc_DocIdUrl msdt:dt="string">https://portal.freudenberg.net:55554/projectsites/ST-sscorcos/purchasing/gestione-trasporti/_layouts/15/DocIdRedir.aspx?ID=DKAW657M5JWJ-9937882-30, DKAW657M5JWJ-9937882-30</mso:_dlc_DocIdUrl>
+        <mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">MigrationUser FST</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+        <mso:Order msdt:dt="string">3000.00000000000</mso:Order>
+        <mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">MigrationUser FST</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+        <mso:ContentTypeId msdt:dt="string">0x0101002C84E60F923FBC49A9084E51078D1B15</mso:ContentTypeId>
+    </mso:CustomDocumentProperties>
+</xml><![endif]-->
+    <title></title></head>

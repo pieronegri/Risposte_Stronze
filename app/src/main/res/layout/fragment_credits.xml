@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pieronegri.rispostestronze.ui.controller.Credits"
+    tools:context="pieronegri.RisposteStronze.ui.controller.Credits"
     >
 
     <ImageButton
@@ -14,7 +14,7 @@
         android:layout_gravity="center|top"
         android:layout_marginTop="40dp"
         android:src="@drawable/ordina"
-        android:contentDescription="@string/DecriptionBtnOrder"
+        android:contentDescription="@string/DescBtnOrder"
         />
      <ImageView
         android:id="@+id/imageView2"
@@ -22,7 +22,7 @@
         android:layout_height="@dimen/button_height_small"
         android:layout_gravity="center"
         android:src="@drawable/nobackground_palla120x120"
-        android:contentDescription="@string/DecriptionBtnPalla"
+        android:contentDescription="@string/DescBtnPalla"
          />
 
     <ImageButton
@@ -32,7 +32,7 @@
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="90dp"
         android:src="@drawable/facebook_logo"
-        android:contentDescription="@string/DecriptionBtnFBPage"
+        android:contentDescription="@string/DescBtnFBPage"
         />
 
     <TextView

@@ -1,108 +1,42 @@
 {
   "project_info": {
-    "project_number": "982362977758",
-    "firebase_url": "https://rispostestronze.firebaseio.com",
-    "project_id": "rispostestronze",
-    "storage_bucket": "rispostestronze.appspot.com"
+    "project_number": "1061276011762",
+    "firebase_url": "https://rispostestr.firebaseio.com",
+    "project_id": "rispostestr",
+    "storage_bucket": "rispostestr.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:982362977758:android:5cd8db621bfa318a02994f",
+        "mobilesdk_app_id": "1:1061276011762:android:821add2f3c39d4f840d46b",
         "android_client_info": {
-          "package_name": "pieronegri.risposteStronze"
+          "package_name": "pieronegri.RisposteStronze"
         }
       },
       "oauth_client": [
         {
-          "client_id": "982362977758-ssadp2jcmsbv3ndj3m5hqf1d70f59jjd.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCSRkkOGOGM5bBlGyBFelGbMxyxumScOpE"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "982362977758-ssadp2jcmsbv3ndj3m5hqf1d70f59jjd.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:982362977758:android:0c4766d1432bab0a02994f",
-        "android_client_info": {
-          "package_name": "pieronegri.rispostestronze"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "982362977758-ji0ne3ejm5ej1o3lhg1ga2tejoehvpai.apps.googleusercontent.com",
+          "client_id": "1061276011762-qpfbnj9ksnvl973gdpcld89b4k1206fm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "pieronegri.rispostestronze",
+            "package_name": "pieronegri.RisposteStronze",
             "certificate_hash": "27163497be7aadab86df54c48d721118c2642365"
           }
         },
         {
-          "client_id": "982362977758-ssadp2jcmsbv3ndj3m5hqf1d70f59jjd.apps.googleusercontent.com",
+          "client_id": "1061276011762-o878ojh358de39v3eljgad6fq79mrl5a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCSRkkOGOGM5bBlGyBFelGbMxyxumScOpE"
+          "current_key": "AIzaSyBXN_KLCATGKXoLR3D_cJxCyjjNIVFgOhY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "982362977758-ssadp2jcmsbv3ndj3m5hqf1d70f59jjd.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:982362977758:android:e0366190c2c5bf3002994f",
-        "android_client_info": {
-          "package_name": "pieronegri.rispostestronze.again"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "982362977758-dcl933e47l93c3la2hdhcog84pa3ptmn.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "pieronegri.rispostestronze.again",
-            "certificate_hash": "27163497be7aadab86df54c48d721118c2642365"
-          }
-        },
-        {
-          "client_id": "982362977758-ssadp2jcmsbv3ndj3m5hqf1d70f59jjd.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCSRkkOGOGM5bBlGyBFelGbMxyxumScOpE"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "982362977758-ssadp2jcmsbv3ndj3m5hqf1d70f59jjd.apps.googleusercontent.com",
+              "client_id": "1061276011762-o878ojh358de39v3eljgad6fq79mrl5a.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

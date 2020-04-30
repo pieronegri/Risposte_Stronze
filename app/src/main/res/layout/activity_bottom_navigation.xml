@@ -4,10 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pieronegri.rispostestronze.ui.controller.MainActivity"
+    tools:context="pieronegri.RisposteStronze.ui.controller.MainActivity"
     android:id="@+id/container"
     >
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/AppTheme"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
@@ -31,6 +38,6 @@
             android:layout_height="@dimen/button_height_medium"
             android:layout_gravity="center"
             android:background="@color/colorBackground"
-            android:contentDescription="@string/DescriptionBtnExit"
+            android:contentDescription="@string/DescBtnExit"
             app:srcCompat="@drawable/esci" />
 </FrameLayout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RisposteStronze</string>
+    <string name="app_name">RisposteS**onze</string>
     <!--
         <string name="FACEBOOK_APP_ID">2589863557923893</string>
         <string name="facebook_app_id">2589863557923893</string>
@@ -11,36 +11,22 @@
        <string name="title_activity_bottom_navigation">RisposteStronze</string>
        -->
     <string name="default_notification_channel_id">defaultChannelId</string>
-
-
-
-
     <string name="Txt_signIn_invitation">Registrati cliccando sulla chiave</string>
     <string name="logInError">"Devi registrarti prima di iniziare"</string>
     <string name="logOut_invitation">Log out</string>
     <string name="logOutSuccess">"log out eseguito"</string>
     <string name="logOutError">"la tua utenza è già stata deregistrata"</string>
     <string name="logOutOKMessage">"Log out eseguito correttamente"</string>
-
-
-    <string name="title_risposta">Risposte</string>
-    <string name="title_login">LogIn</string>
-    <string name="title_credits">Credits</string>
-
-    <string name="Txt_Disegni">
-        Disegni di lisefischer.
-    </string>
-    <string name="DescriptionBtnExit">Esci</string>
-    <string name="DecriptionBtnPalla">genera la risposta</string>
-    <string name="DecriptionBtnChiave">LogInDescription</string>
-    <string name="DecriptionBtnFBPage">facebook page</string>
-    <string name="DecriptionBtnOrder">LogIn</string>
-
-    <string name="mailTo">pieronegri@gmail.com</string>
-    <string name="mailSubject">"mandami una copia del piccolo libro delle risposte stronze!"</string>
-    <string name="mailBody">" scrivi qui il tuo indirizzo: "+"\npuoi effettuare un paypal a pieronegri@gmail.com\n" +
-                            " oppure un bonifico a xxxx\n" +
-                    "la spedizione avverrà dopo il pagamento"</string>
+    <string name="TitleFragmentRisposta">Risposte</string>
+    <string name="TitleFragmentLogin">LogIn</string>
+    <string name="TitleFragmentCredits">Credits</string>
+    <string name="TitleActionEsci">Esci</string>
+    <string name="Txt_Disegni">Disegni di lisefischer.</string>
+    <string name="DescBtnExit">Esci</string>
+    <string name="DescBtnPalla">genera la risposta</string>
+    <string name="DescBtnChiave">LogInDescription</string>
+    <string name="DescBtnFBPage">facebook page</string>
+    <string name="DescBtnOrder">LogIn</string>
     <string name="UrlFBPage">https://rispostestronze.page.link/risposte-stronze-facebook</string>
     <string name="UrlOrder">https://rispostestronze.page.link/ordina-libro</string>
     <string name="UrlFBPageLiseFischer">https://www.facebook.com/lisebethfischer</string>

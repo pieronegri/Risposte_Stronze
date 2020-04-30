@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="pieronegri.rispostestronze.ui.controller.Risposta"
-        android:label="@string/title_risposta"
+        android:name="pieronegri.RisposteStronze.ui.controller.Risposta"
+        android:label="@string/TitleFragmentRisposta"
         tools:layout="@layout/fragment_risposta" />
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="pieronegri.rispostestronze.ui.controller.Login"
-        android:label="@string/title_login"
+        android:name="pieronegri.RisposteStronze.ui.controller.Login"
+        android:label="@string/TitleFragmentLogin"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="pieronegri.rispostestronze.ui.controller.Credits"
-        android:label="@string/title_credits"
+        android:name="pieronegri.RisposteStronze.ui.controller.Credits"
+        android:label="@string/TitleFragmentCredits"
         tools:layout="@layout/fragment_credits" />
 </navigation>

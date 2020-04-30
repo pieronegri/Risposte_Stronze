@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pieronegri.rispostestronze.ui.controller.Login"
+    tools:context="pieronegri.RisposteStronze.ui.controller.Login"
     >
 
     <TextView
@@ -25,7 +25,7 @@
         android:layout_marginTop="50dp"
         android:src="@drawable/nobackground_chiave_200x200"
         android:background="@color/colorBackground"
-        android:contentDescription="@string/DecriptionBtnChiave"/>
+        android:contentDescription="@string/DescBtnChiave"/>
 
     <TextView
         android:id="@+id/Txt_displayMessage"
