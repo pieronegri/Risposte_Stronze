@@ -72,7 +72,7 @@ public class Login extends BottomFragmentIMPL {
         }
         catch(Exception e){
             e.printStackTrace();
-            t.setText(getString(R.string.logInError));
+            t.setText(getString(R.string.logInBeforeRisposte));
         }
     }
 
@@ -138,6 +138,7 @@ public class Login extends BottomFragmentIMPL {
                 try {
                     response.getError().printStackTrace();
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 return;
             }

@@ -1,6 +1,5 @@
 package pieronegri.RisposteStronze.ui.controller;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -8,7 +7,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import pieronegri.RisposteStronze.BuildConfig;
 import pieronegri.RisposteStronze.data_source.Firebase.FBNodeStructure;
 import pieronegri.RisposteStronze.data_source.Firebase.FBRepository;
 import pieronegri.RisposteStronze.utils.Utility;
@@ -18,9 +16,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.multidex.BuildConfig;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigation;
@@ -30,17 +28,12 @@ public class MainActivity extends AppCompatActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     String Tag=String.valueOf(item.getItemId());
                     try {
-                        switch (item.getItemId()) {
-                            case R.id.navigation_risposta:
-                                open(Risposta.newInstance(), Tag);
-                                return true;
-                            case R.id.navigation_login:
-                                open(Login.newInstance(), Tag);
-                                return true;
-                            case R.id.navigation_credits:
-                                open(Credits.newInstance(), Tag);
-                                return true;
+                        if (item.getItemId() == R.id.navigation_risposta && !Utility.isUserSigned()) {
+                            _toast(getString(R.string.logInBeforeRisposte));
+                            return true;
                         }
+                        open(new BottomFragmentFactoryImpl().makeNavigation(item.getItemId()),Tag);
+                        return true;
                     }catch(Exception e){
                         e.printStackTrace();
                     }
@@ -62,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         /*
@@ -84,21 +76,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         new FBRepository(FBNodeStructure.Risposta);
         setContentView(R.layout.activity_bottom_navigation);
-
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);findViewById(R.id.Btn_Exit).setOnClickListener(myOnClickListener);
             try{
-                ReplaceWithLastBackStackElement();
+                ReplaceLastBackStackElement();
             }
-            catch (Exception e1){
-                try {
-                    Utility.SetOnLinePresence();
+            catch (Exception e){
+                if(Utility.isUserSigned())
                     bottomNavigation.setSelectedItemId(R.id.navigation_risposta);
-                } catch (Exception e2) {
-                    e1.printStackTrace();
-                    e2.printStackTrace();
+                else
                     bottomNavigation.setSelectedItemId(R.id.navigation_login);
-                }
             }
     }
 
@@ -117,42 +104,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void ReplaceWithLastBackStackElement() throws Exception {
+    private void ReplaceLastBackStackElement() throws Exception {
         String Tag=getSupportFragmentManager().getBackStackEntryAt(
                             getSupportFragmentManager().getBackStackEntryCount() - 1)
                     .getName();
-        open(Tag);
+        deBugToastBackStackCount();
+        open(getSupportFragmentManager().findFragmentByTag(Tag), Tag);
     }
 
-    private void open(@NonNull Fragment f, @NonNull String Tag) throws Exception {
-        try{
-            open(Tag);
-        }
-        catch(Exception e){
-            open(f,Tag,true);
-        }
-    }
-    private void open(String Tag) throws Exception {
-        Fragment f=getSupportFragmentManager().findFragmentByTag(Tag);
-        open(f, Tag, false);
-    }
-
-    private void open(@NonNull Fragment f,@NonNull String Tag, Boolean isToAddToBackStack) throws Exception {
+    private void open(@NonNull Fragment f,@NonNull String Tag) throws Exception {
         try {
             if (Tag == null) throw new Exception("Tag is not Null");
+            f=getSupportFragmentManager().findFragmentByTag(Tag) != null ?
+                    getSupportFragmentManager().findFragmentByTag(Tag) : f;
             if (f == null) throw new Exception("f is not Null");
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.container, f, Tag);
-            if (isToAddToBackStack) {
-                transaction.addToBackStack(Tag);
-            }
+            transaction.addToBackStack(Tag);
             transaction.commit();
-            /*
-            if(BuildConfig.DEBUG) {
-                Toast.makeText(getApplicationContext(), "backStack count " + getSupportFragmentManager().getBackStackEntryCount(),
-                        Toast.LENGTH_SHORT).show();
-            }
-             */
+            deBugToastBackStackCount();
         }
         catch(Exception e){
             e.printStackTrace();
@@ -160,7 +130,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void deBugToastBackStackCount(){
+        if(BuildConfig.DEBUG) {
+            _toast("backStack count " + getSupportFragmentManager().getBackStackEntryCount());
+        }
+    }
 
+    private void _toast(String message){
+        Toast.makeText(getApplicationContext(), message,Toast.LENGTH_SHORT).show();
+    }
     @Override
     public void onBackPressed(){
         if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
