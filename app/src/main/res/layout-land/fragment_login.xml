@@ -47,7 +47,8 @@
         android:layout_marginEnd="@dimen/margin_small"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/logOut_invitation"
-        android:src="@drawable/logout80x80" />
+        android:src="@drawable/logout80x80"
+        android:clickable="true"/>
 
 
 </FrameLayout>

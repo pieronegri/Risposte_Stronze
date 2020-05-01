@@ -43,7 +43,10 @@
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="@dimen/button_marginBottom"
         android:contentDescription="@string/logOut_invitation"
-        android:src="@drawable/logout80x80" />
+        android:src="@drawable/logout80x80"
+        android:background="@color/colorBackground"
+        android:clickable="true"
+        />
 
 
 </FrameLayout>
