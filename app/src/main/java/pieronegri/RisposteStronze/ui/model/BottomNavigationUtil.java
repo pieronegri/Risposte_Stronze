@@ -15,6 +15,7 @@ import pieronegri.RisposteStronze.data_source.Firebase.FBRepositoryCallBack;
 class BottomNavigationUtil extends ViewModel {
     MutableLiveData<DataSnapshot> DataSnapshotMutableLiveData = null;
     BottomNavigationUtil(){
+        fetchConfig();
         setDataSnapshot();
     }
     void fetchConfig(){

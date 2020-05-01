@@ -16,6 +16,8 @@ public class BottomNavigation extends BottomNavigationUtil {
     private MutableLiveData<String> WelcomeMessageMutableLiveData=null;
 
     public BottomNavigation() {
+        super();
+        fetchConfig();
     }
 
     @Override
