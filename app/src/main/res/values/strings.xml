@@ -28,7 +28,7 @@
     <string name="DescBtnFBPage">facebook page</string>
     <string name="DescBtnOrder">LogIn</string>
     <string name="UrlFBPage">https://rispostestr.page.link/risposteStronze-FBPage</string>
-    <string name="UrlOrder">https://rispostestronze.page.link/ordina-libro</string>
+    <string name="UrlOrder">https://rispostestr.page.link/ordina-libro</string>
     <string name="UrlFBPageLiseFischer">https://rispostestr.page.link/lisefischer-FBPage</string>
 </resources>
 
