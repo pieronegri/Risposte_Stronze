@@ -8,7 +8,7 @@
     >
 
     <TextView
-        android:id="@+id/Txt_signin"
+        android:id="@+id/Txt_displayMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
@@ -29,16 +29,6 @@
         android:background="@color/colorBackground"
         android:contentDescription="@string/DescBtnChiave"/>
 
-    <TextView
-        android:id="@+id/Txt_displayMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|top"
-        android:layout_marginTop="100dp"
-        android:textAlignment="center"
-        android:textColor="@color/colorText"
-        android:textSize="@dimen/TxtSizeBig" />
-
     <ImageButton
         android:id="@+id/signOut"
         android:layout_width="@dimen/button_width_small"
@@ -48,7 +38,8 @@
         android:layout_marginTop="20dp"
         android:contentDescription="@string/logOut_invitation"
         android:src="@drawable/logout80x80"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:focusable="true"/>
 
 
 </FrameLayout>

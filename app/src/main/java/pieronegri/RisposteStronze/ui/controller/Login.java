@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import pieronegri.RisposteStronze.utils.Utility;
 import pieronegri.RisposteStronze.R;
@@ -36,12 +37,6 @@ public class Login extends BottomFragmentIMPL {
     private static String TAG = Login.class.getName();
     private static final int RC_SIGN_IN = 123;
     private static String currentSingIn = "Sei registrato come %1$s";
-    private View.OnClickListener myOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            onClickCallBack(v);
-        }
-    };
 
     public Login()  {
         super(R.layout.fragment_login);
@@ -57,22 +52,25 @@ public class Login extends BottomFragmentIMPL {
 
     @Override
     public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
-        // Setup any handles to view objects here
-        // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
         super.onViewCreated(view, savedInstanceState);
-
+        View.OnClickListener myOnClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickCallBack(v);
+            }
+        };
         ImageButton signIn = view.findViewById(R.id.signIn);
         signIn.setOnClickListener(myOnClickListener);
         ImageButton signOut = view.findViewById(R.id.signOut);
+        signOut.setClickable(true);
         signOut.setOnClickListener(myOnClickListener);
         TextView t = view.findViewById(R.id.Txt_displayMessage);
-
         try{
             t.setText(String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()));
         }
         catch(Exception e){
             e.printStackTrace();
-            t.setText(getString(R.string.logInBeforeRisposte));
+            t.setText(getString(R.string.Txt_signIn_invitation));
         }
     }
 
@@ -89,7 +87,6 @@ public class Login extends BottomFragmentIMPL {
 
     private void SignIn()
     {
-
         List<AuthUI.IdpConfig> providers = Arrays.asList(
                 new AuthUI.IdpConfig.GoogleBuilder().build());
 
@@ -106,7 +103,7 @@ public class Login extends BottomFragmentIMPL {
         if(getActivity()==null){return;}
         TextView t = getView().findViewById(R.id.Txt_displayMessage);
         if (!isUserSigned()) {
-            t.setText(getString(R.string.logOutError));
+            Toast.makeText(getContext(), getString(R.string.logOutMoreThanOnce),Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -118,9 +115,8 @@ public class Login extends BottomFragmentIMPL {
                             // ...
                         }
                     });
-            t.setText(getString(R.string.logOutSuccess));
-            Utility.setCurrentUser();
             Log.w(TAG,getString(R.string.logOutOKMessage));
+            Toast.makeText(getContext(), getString(R.string.logOutOKMessage),Toast.LENGTH_SHORT).show();
         }
         catch(Exception e){
             e.printStackTrace();
@@ -136,6 +132,7 @@ public class Login extends BottomFragmentIMPL {
             IdpResponse response = IdpResponse.fromResultIntent(data);
             if(resultCode != Activity.RESULT_OK) {
                 try {
+                    Toast.makeText(getContext(), getString(R.string.logInError),Toast.LENGTH_SHORT).show();
                     response.getError().printStackTrace();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -146,6 +143,8 @@ public class Login extends BottomFragmentIMPL {
                     Utility.setCurrentUser();
                     TextView t = getView().findViewById(R.id.Txt_displayMessage);
                     t.setText(String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()));
+                    Toast.makeText(getContext(), String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()),
+                            Toast.LENGTH_SHORT).show();
                     Menu menu = getBottomNavigationView().getMenu();
                     getBottomNavigationView().setSelectedItemId(R.id.navigation_risposta);
                 }
@@ -162,9 +161,4 @@ public class Login extends BottomFragmentIMPL {
             }
     }
 
-    @Override
-    public void onDestroyView(){
-        super.onDestroyView();
-        myOnClickListener=null;
-    }
 }

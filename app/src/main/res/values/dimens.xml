@@ -11,4 +11,5 @@
     <dimen name="TxtSizeBig">18sp</dimen>
     <dimen name="TxtSizeVeryBig">24sp</dimen>
     <dimen name="margin_small">80dp</dimen>
+    <dimen name="margin_medium">100dp</dimen>
 </resources>

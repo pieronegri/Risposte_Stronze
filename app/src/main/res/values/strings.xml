@@ -15,7 +15,8 @@
     <string name="logInBeforeRisposte">"Fai il log in prima di accedere alle risposte"</string>
     <string name="logOut_invitation">Log out</string>
     <string name="logOutSuccess">"log out eseguito"</string>
-    <string name="logOutError">"la tua utenza è già stata deregistrata"</string>
+    <string name="logOutMoreThanOnce">"Nessun utente è loggato al momento"</string>
+    <string name="logInError">"Si èverificato un errore, per favore riprova"</string>
     <string name="logOutOKMessage">"Log out eseguito correttamente"</string>
     <string name="TitleFragmentRisposta">Risposte</string>
     <string name="TitleFragmentLogin">LogIn</string>

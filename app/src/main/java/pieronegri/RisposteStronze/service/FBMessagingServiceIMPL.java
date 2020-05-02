@@ -58,10 +58,10 @@ public class FBMessagingServiceIMPL extends FirebaseMessagingService {
                             NotificationManager.IMPORTANCE_HIGH
                     );
                     notificationManager.createNotificationChannel(channel);
-                }
+                }/*
                 else{
                     notificationBuilder.setPriority(Notification.PRIORITY_MAX);
-                }
+                }*/
 
                 notificationManager.notify(0 , notificationBuilder.build());
             }

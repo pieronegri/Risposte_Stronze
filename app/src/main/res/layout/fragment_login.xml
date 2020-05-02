@@ -8,10 +8,11 @@
     >
 
     <TextView
-        android:id="@+id/Txt_signin"
+        android:id="@+id/Txt_displayMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
+        android:layout_marginTop="@dimen/margin_small"
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="@dimen/TxtSizeBig"
@@ -21,32 +22,23 @@
         android:id="@+id/signIn"
         android:layout_width="@dimen/button_height_large"
         android:layout_height="@dimen/button_height_large"
-        android:layout_gravity="center|top"
-        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
         android:src="@drawable/nobackground_chiave_200x200"
         android:background="@color/colorBackground"
         android:contentDescription="@string/DescBtnChiave"/>
 
-    <TextView
-        android:id="@+id/Txt_displayMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-        android:textColor="@color/colorText"
-        android:textSize="@dimen/TxtSizeBig" />
-
     <ImageButton
         android:id="@+id/signOut"
-        android:layout_width="@dimen/button_width_small"
-        android:layout_height="@dimen/button_width_small"
+        android:layout_width="@dimen/button_width_medium"
+        android:layout_height="@dimen/button_width_medium"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="@dimen/button_marginBottom"
-        android:contentDescription="@string/logOut_invitation"
-        android:src="@drawable/logout80x80"
-        android:background="@color/colorBackground"
+        android:layout_marginBottom="@dimen/margin_medium"
         android:clickable="true"
-        />
+        android:background="@color/colorBackground"
+        android:contentDescription="@string/logOut_invitation"
+        android:focusable="true"
+        android:src="@drawable/logout80x80" />
 
 
 </FrameLayout>

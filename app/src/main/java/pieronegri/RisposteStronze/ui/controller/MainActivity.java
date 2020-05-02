@@ -5,6 +5,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import pieronegri.RisposteStronze.data_source.Firebase.FBNodeStructure;
@@ -12,6 +14,7 @@ import pieronegri.RisposteStronze.data_source.Firebase.FBRepository;
 import pieronegri.RisposteStronze.utils.Utility;
 import pieronegri.RisposteStronze.R;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -74,19 +77,25 @@ public class MainActivity extends AppCompatActivity {
         }
         */
         super.onCreate(savedInstanceState);
+        //crashButton();
         new FBRepository(FBNodeStructure.Risposta);
         setContentView(R.layout.activity_bottom_navigation);
         bottomNavigation = findViewById(R.id.bottom_navigation);
-        bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);findViewById(R.id.Btn_Exit).setOnClickListener(myOnClickListener);
-            try{
-                ReplaceLastBackStackElement();
-            }
-            catch (Exception e){
-                if(Utility.isUserSigned())
-                    bottomNavigation.setSelectedItemId(R.id.navigation_risposta);
-                else
-                    bottomNavigation.setSelectedItemId(R.id.navigation_login);
-            }
+        findViewById(R.id.Btn_Exit).setOnClickListener(myOnClickListener);
+        bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
+        navigateToFirstFragment(bottomNavigation);
+    }
+
+    private void navigateToFirstFragment(BottomNavigationView bottomNavigation) {
+        try{
+            ReplaceLastBackStackElement();
+        }
+        catch (Exception e){
+            if(Utility.isUserSigned())
+                bottomNavigation.setSelectedItemId(R.id.navigation_risposta);
+            else
+                bottomNavigation.setSelectedItemId(R.id.navigation_login);
+        }
     }
 
     @Override
@@ -102,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
-
 
     private void ReplaceLastBackStackElement() throws Exception {
         String Tag=getSupportFragmentManager().getBackStackEntryAt(
@@ -148,6 +156,19 @@ public class MainActivity extends AppCompatActivity {
             findViewById(R.id.Btn_Exit).setClickable(true);
             finishAffinity();
         }
+    }
+
+    private void crashButton(){
+        Button crashButton = new Button(this);
+        crashButton.setText("Crash!");
+        crashButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Crashlytics.getInstance().crash(); // Force a crash
+            }
+        });
+        addContentView(crashButton, new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT));
     }
 
 }
