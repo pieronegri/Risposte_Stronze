@@ -1,12 +1,14 @@
 package pieronegri.RisposteStronze.ui.controller;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import pieronegri.RisposteStronze.data_source.Firebase.FBNodeStructure;
@@ -45,19 +47,6 @@ public class MainActivity extends AppCompatActivity {
             };
 
 
-    private View.OnClickListener myOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            onClickCallBack(v);
-        }
-
-        private void onClickCallBack(View v) {
-            if (v.getId() == R.id.Btn_Exit) {
-                finishAffinity();
-            }
-        }
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         /*
@@ -81,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         new FBRepository(FBNodeStructure.Risposta);
         setContentView(R.layout.activity_bottom_navigation);
         bottomNavigation = findViewById(R.id.bottom_navigation);
-        findViewById(R.id.Btn_Exit).setOnClickListener(myOnClickListener);
         bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         navigateToFirstFragment(bottomNavigation);
     }
@@ -145,16 +133,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void _toast(String message){
-        Toast.makeText(getApplicationContext(), message,Toast.LENGTH_SHORT).show();
+        Utility._toast(this,message);
     }
+
     @Override
     public void onBackPressed(){
         if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
             super.onBackPressed();
         }
         else{
-            findViewById(R.id.Btn_Exit).setClickable(true);
-            finishAffinity();
+            ImageButton exitButton = new ImageButton(this);
+            exitButton.setImageResource(R.drawable.esci);
+
+            exitButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    finishAffinity();
+                }
+            });
+            addContentView(exitButton, new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT));
         }
     }
 

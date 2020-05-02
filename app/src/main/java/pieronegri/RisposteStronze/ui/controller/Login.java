@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 
 import android.view.View;
@@ -103,7 +104,7 @@ public class Login extends BottomFragmentIMPL {
         if(getActivity()==null){return;}
         TextView t = getView().findViewById(R.id.Txt_displayMessage);
         if (!isUserSigned()) {
-            Toast.makeText(getContext(), getString(R.string.logOutMoreThanOnce),Toast.LENGTH_SHORT).show();
+           _toast(getString(R.string.logOutMoreThanOnce));
             return;
         }
 
@@ -116,13 +117,14 @@ public class Login extends BottomFragmentIMPL {
                         }
                     });
             Log.w(TAG,getString(R.string.logOutOKMessage));
-            Toast.makeText(getContext(), getString(R.string.logOutOKMessage),Toast.LENGTH_SHORT).show();
+            _toast(getString(R.string.logOutOKMessage));
         }
         catch(Exception e){
             e.printStackTrace();
         }
         // [END auth_fui_signout]
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -132,7 +134,7 @@ public class Login extends BottomFragmentIMPL {
             IdpResponse response = IdpResponse.fromResultIntent(data);
             if(resultCode != Activity.RESULT_OK) {
                 try {
-                    Toast.makeText(getContext(), getString(R.string.logInError),Toast.LENGTH_SHORT).show();
+                    _toast(getString(R.string.logInError));
                     response.getError().printStackTrace();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -160,5 +162,4 @@ public class Login extends BottomFragmentIMPL {
                 // ...
             }
     }
-
 }

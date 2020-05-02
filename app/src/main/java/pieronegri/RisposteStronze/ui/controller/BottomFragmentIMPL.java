@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -100,6 +102,9 @@ class BottomFragmentIMPL extends BottomFragmentABS {
         getBottomNavigationView().setSelectedItemId(itemId);
     }
 
+    void _toast(String message){
+        Utility._toast(getContext(),message);
+    }
 
 
     @Override

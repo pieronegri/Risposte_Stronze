@@ -1,7 +1,12 @@
 package pieronegri.RisposteStronze.utils;
 
+import android.content.Context;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import pieronegri.RisposteStronze.R;
 import pieronegri.RisposteStronze.data_source.Firebase.FBNodeStructure;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -75,6 +80,14 @@ public class Utility {
             return false;
         }
         return true;
+    }
+
+    public static void _toast(Context ctx, String message) {
+        Toast toast = Toast.makeText(ctx, message, Toast.LENGTH_SHORT);
+        View view = toast.getView();
+        TextView text = (TextView) view.findViewById(android.R.id.message);
+        text.setTextColor(ctx.getResources().getColor(R.color.colorWhite));
+        toast.show();
     }
 }
 
