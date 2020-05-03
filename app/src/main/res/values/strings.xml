@@ -27,7 +27,7 @@
     <string name="DescBtnPalla">genera la risposta</string>
     <string name="DescBtnChiave">LogInDescription</string>
     <string name="DescBtnFBPage">facebook page</string>
-    <string name="DescBtnOrder">LogIn</string>
+    <string name="DescBtnOrder">Ordina una copia del libro</string>
     <string name="UrlFBPage">https://rispostestr.page.link/risposteStronze-FBPage</string>
     <string name="UrlOrder">https://rispostestr.page.link/ordina-libro</string>
     <string name="UrlFBPageLiseFischer">https://rispostestr.page.link/lisefischer-FBPage</string>

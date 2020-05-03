@@ -32,12 +32,8 @@ class BottomFragmentIMPL extends BottomFragmentABS {
     }
 
     BottomFragmentIMPL(@NotNull Integer layoutId) {
-        setLayoutId(layoutId);
-    }
-
-    public BottomFragmentIMPL(@NotNull Integer bottomNavigationId, @NotNull Integer loginFragmentId, @NotNull Integer layoutId) {
-        this.loginFragmentId = loginFragmentId;
-        this.bottomNavigationId = bottomNavigationId;
+        this.loginFragmentId = R.id.navigation_login;
+        this.bottomNavigationId = R.id.bottom_navigation;
         setLayoutId(layoutId);
     }
 

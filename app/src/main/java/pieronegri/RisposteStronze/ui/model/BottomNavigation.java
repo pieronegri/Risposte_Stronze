@@ -14,6 +14,7 @@ public class BottomNavigation extends BottomNavigationUtil {
     private MutableLiveData<String> MessageMutableLiveData = null;
     private MutableLiveData<String> ColorMutableLiveData = null;
     private MutableLiveData<String> WelcomeMessageMutableLiveData=null;
+    private String OrderBookMessage=null;
 
     public BottomNavigation() {
         super();
@@ -33,6 +34,10 @@ public class BottomNavigation extends BottomNavigationUtil {
     public void fetchWelcomeMessage(){
         fetchConfig();
         getWelcomeMessageMutableLiveData().setValue(FirebaseRemoteConfig.getInstance().getString("welcome_messageRisposta"));
+    }
+    public void fetchOrderBookMessage() {
+        fetchConfig();
+        OrderBookMessage=FirebaseRemoteConfig.getInstance().getString("orderBook");
     }
 
     public void fetchColor(){
@@ -64,4 +69,10 @@ public class BottomNavigation extends BottomNavigationUtil {
         MessageMutableLiveData=getMutable(MessageMutableLiveData);
         return MessageMutableLiveData;
     }
+
+    public String getOrderBookMessage(){
+        fetchOrderBookMessage();
+        return OrderBookMessage;
+    }
+
 }

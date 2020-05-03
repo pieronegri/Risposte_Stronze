@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 import androidx.fragment.app.Fragment;
@@ -36,14 +38,17 @@ private String TAG= Credits.class.getName();
     @Override
     public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ;
+        TextView t =view.findViewById(R.id.TxtOrderBook);
+        t.setText(getModel().getOrderBookMessage());
+        view.findViewById(R.id.Btn_OrderBook).setOnClickListener(v -> onClick(v));
         view.findViewById(R.id.Btn_FBPageLibro).setOnClickListener(v -> onClick(v));
-        view.findViewById(R.id.Btn_OrderForm).setOnClickListener(v -> onClick(v));
         view.findViewById(R.id.TxtDisegniDi).setOnClickListener(v -> onClick(v));
     }
 
     private void onClick(View view) {
         switch (view.getId()) {
-            case R.id.Btn_OrderForm:
+            case R.id.Btn_OrderBook:
                 openUrl(getString(R.string.UrlOrder));
                 break;
             case R.id.Btn_FBPageLibro:
