@@ -109,6 +109,7 @@ class BottomFragmentIMPL extends BottomFragmentABS {
         bottomNavigationView=null;
         bottomNavigationId=null;
         loginFragmentId=null;
+        model=null;
     }
 
  }
