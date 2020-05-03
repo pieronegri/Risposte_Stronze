@@ -26,7 +26,7 @@ class BottomFragmentIMPL extends BottomFragmentABS {
     private Integer navigationMenuItemId;
     private static BottomNavigationView bottomNavigationView = null;
     private Integer layoutId = null;
-    private static BottomNavigation model=null;
+    private BottomNavigation model=null;
 
     public BottomFragmentIMPL() {
     }
@@ -109,7 +109,6 @@ class BottomFragmentIMPL extends BottomFragmentABS {
         bottomNavigationView=null;
         bottomNavigationId=null;
         loginFragmentId=null;
-        model=null;
     }
 
  }
