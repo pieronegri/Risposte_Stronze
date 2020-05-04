@@ -8,37 +8,20 @@
     >
 
     <ImageButton
-        android:id="@+id/Btn_OrderBook"
+        android:id="@+id/Btn_OrderForm"
         android:layout_width="@dimen/button_width_medium"
         android:layout_height="@dimen/button_height_medium"
         android:layout_gravity="center|start"
         android:layout_marginStart="@dimen/margin_small"
         android:src="@drawable/ordina"
-        android:background="@color/colorBackground"
-        android:text=""
-        android:textColor="@color/colorText"
-        android:gravity="bottom|center"
-        android:paddingBottom="-10dp"
         android:contentDescription="@string/DescBtnOrder"
         />
-
-    <TextView
-        android:id="@+id/TxtOrderBook"
-        android:layout_width="@dimen/button_width_medium"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|start"
-        android:layout_marginStart="@dimen/margin_small"
-        android:layout_marginBottom="-65dp"
-        android:text=""
-        android:textAlignment="center"
-        android:textColor="@color/colorText"
-        android:textSize="@dimen/TxtSizeMedium" />
      <ImageView
         android:id="@+id/imageView2"
         android:layout_width="@dimen/button_width_small"
         android:layout_height="@dimen/button_height_small"
         android:layout_gravity="center"
-        android:src="@drawable/nobackground_palla120x120"
+        android:src="@drawable/developer"
         android:contentDescription="@string/DescBtnPalla"
          />
 
@@ -55,13 +38,14 @@
 
     <TextView
         android:id="@+id/TxtDisegniDi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="-65dp"
+        android:layout_marginBottom="-60dp"
         android:clickable="true"
         android:focusable="true"
         android:text="@string/Txt_Disegni"
+        android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="@dimen/TxtSizeMedium"
         android:textStyle="italic" />

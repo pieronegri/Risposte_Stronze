@@ -5,7 +5,7 @@
     <item
         android:id="@+id/navigation_risposta"
         android:icon="@drawable/ic_action_risposta"
-android:iconTint="@color/colorText"
+        android:iconTint="@color/colorText"
         android:title="@string/TitleFragmentRisposta" />
 
     <item
