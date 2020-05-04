@@ -65,12 +65,12 @@ public class Credits extends BottomFragmentIMPL {
             result="fb://page/"+fbId;
             getContext().getPackageManager().getPackageInfo("com.facebook.katana", 0);
             i = new Intent(Intent.ACTION_VIEW, Uri.parse(result));
-        } catch (Exception e) {
-            result="https://www.facebook.com/"+fbId;
-            i= new Intent(Intent.ACTION_VIEW,Uri.parse(result));
-        }
+            } catch (Exception e) {
+                result="https://www.facebook.com/"+fbId;
+                i= new Intent(Intent.ACTION_VIEW,Uri.parse(result));
+            }
         return result;
-    }
+        }
 
     private void openUrl(String Url) {
         // e.g. if your URL is https://www.facebook.com/EXAMPLE_PAGE, you should put EXAMPLE_PAGE at the end of this URL, after the ?
