@@ -1,12 +1,12 @@
 package pieronegri.RisposteStronze.ui.controller;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 
 import androidx.fragment.app.Fragment;
@@ -22,7 +22,7 @@ import pieronegri.RisposteStronze.R;
  */
 public class Credits extends BottomFragmentIMPL {
     // TODO: Rename and change types of parameters
-private String TAG= Credits.class.getName();
+    private String TAG= Credits.class.getName();
     public Credits() {
         super(R.layout.fragment_credits);
     }
@@ -38,26 +38,38 @@ private String TAG= Credits.class.getName();
     @Override
     public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ;
-        TextView t =view.findViewById(R.id.TxtOrderBook);
-        t.setText(getModel().getOrderBookMessage());
-        view.findViewById(R.id.Btn_OrderBook).setOnClickListener(v -> onClick(v));
         view.findViewById(R.id.Btn_FBPageLibro).setOnClickListener(v -> onClick(v));
+        view.findViewById(R.id.Btn_OrderForm).setOnClickListener(v -> onClick(v));
         view.findViewById(R.id.TxtDisegniDi).setOnClickListener(v -> onClick(v));
     }
 
     private void onClick(View view) {
+        String url;
         switch (view.getId()) {
-            case R.id.Btn_OrderBook:
+            case R.id.Btn_OrderForm:
                 openUrl(getString(R.string.UrlOrder));
                 break;
             case R.id.Btn_FBPageLibro:
-                openUrl(getString(R.string.UrlFBPage));
+                openUrl(getOpenFacebookUrl(getString(R.string.UrlFBPageId)));
                 break;
             case R.id.TxtDisegniDi:
-                openUrl(getString(R.string.UrlFBPageLiseFischer));
+                openUrl(getOpenFacebookUrl(getString(R.string.UrlFBPageLiseFischerId)));
                 break;
         }
+    }
+
+    private String getOpenFacebookUrl(String fbId) {
+        Intent i;
+        String result;
+        try {
+            result="fb://page/"+fbId;
+            getContext().getPackageManager().getPackageInfo("com.facebook.katana", 0);
+            i = new Intent(Intent.ACTION_VIEW, Uri.parse(result));
+        } catch (Exception e) {
+            result="https://www.facebook.com/"+fbId;
+            i= new Intent(Intent.ACTION_VIEW,Uri.parse(result));
+        }
+        return result;
     }
 
     private void openUrl(String Url) {
