@@ -1,6 +1,10 @@
 package pieronegri.RisposteStronze.utils;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -86,8 +90,28 @@ public class Utility {
         Toast toast = Toast.makeText(ctx, message, Toast.LENGTH_SHORT);
         View view = toast.getView();
         TextView text = (TextView) view.findViewById(android.R.id.message);
-        text.setTextColor(ctx.getResources().getColor(R.color.colorWhite));
+        text.setTextColor(ctx.getResources().getColor(R.color.colorText));
         toast.show();
     }
-}
+    public static Bitmap loadBitmapFromView(View view) {
+        //and create a bitmap of the same size
+        int width = view.getWidth();
+        int height = (int) (0.8*view.getHeight());
 
+        int measuredWidth = View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY);
+        int measuredHeight = View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY);
+
+        //Cause the view to re-layout
+        view.measure(measuredWidth, measuredHeight);
+        view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+
+        //Create a bitmap backed Canvas to draw the view into
+        Bitmap b = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(b);
+
+        //Now that the view is laid out and we have a canvas, ask the view to draw itself into the canvas
+        view.draw(c);
+
+        return b;
+    }
+}
