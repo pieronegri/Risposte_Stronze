@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="pieronegri.RisposteStronze.ui.controller.Risposta"
+        android:label="@string/TitleFragmentRisposta"
+        tools:layout="@layout/fragment_risposta" />
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="pieronegri.RisposteStronze.ui.controller.Login"
+        android:label="@string/TitleFragmentLogin"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="pieronegri.RisposteStronze.ui.controller.Credits"
+        android:label="@string/TitleFragmentCredits"
+        tools:layout="@layout/fragment_credits" />
+</navigation>

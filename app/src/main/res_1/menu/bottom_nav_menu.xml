@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item
+        android:id="@+id/navigation_risposta"
+        android:icon="@drawable/ic_action_risposta"
+        android:iconTint="@color/colorText"
+        android:title="@string/TitleFragmentRisposta" />
+
+    <item
+        android:id="@+id/navigation_login"
+        android:icon="@drawable/ic_action_login"
+        android:iconTint="@color/colorText"
+
+        android:title="@string/TitleFragmentLogin" />
+
+    <item
+        android:id="@+id/navigation_credits"
+        android:icon="@drawable/ic_action_credits"
+        android:iconTint="@color/colorText"
+
+        android:title="@string/TitleFragmentCredits" />
+</menu>
