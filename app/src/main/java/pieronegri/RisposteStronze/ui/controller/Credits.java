@@ -1,6 +1,8 @@
 package pieronegri.RisposteStronze.ui.controller;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -42,18 +44,33 @@ private String TAG= Credits.class.getName();
     }
 
     private void onClick(View view) {
+        String url;
         switch (view.getId()) {
             case R.id.Btn_OrderForm:
                 openUrl(getString(R.string.UrlOrder));
                 break;
             case R.id.Btn_FBPageLibro:
-                openUrl(getString(R.string.UrlFBPage));
+                openUrl(getOpenFacebookUrl(getString(R.string.UrlFBPageId)));
                 break;
             case R.id.TxtDisegniDi:
-                openUrl(getString(R.string.UrlFBPageLiseFischer));
+                openUrl(getOpenFacebookUrl(getString(R.string.UrlFBPageLiseFischerId)));
                 break;
         }
     }
+
+    private String getOpenFacebookUrl(String fbId) {
+        Intent i;
+        String result;
+        try {
+            result="fb://page/"+fbId;
+            getContext().getPackageManager().getPackageInfo("com.facebook.katana", 0);
+            i = new Intent(Intent.ACTION_VIEW, Uri.parse(result));
+            } catch (Exception e) {
+                result="https://www.facebook.com/"+fbId;
+                i= new Intent(Intent.ACTION_VIEW,Uri.parse(result));
+            }
+        return result;
+        }
 
     private void openUrl(String Url) {
         // e.g. if your URL is https://www.facebook.com/EXAMPLE_PAGE, you should put EXAMPLE_PAGE at the end of this URL, after the ?

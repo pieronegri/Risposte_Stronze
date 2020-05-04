@@ -1,5 +1,6 @@
 package pieronegri.RisposteStronze.ui.controller;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,12 +22,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.multidex.BuildConfig;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigation;
+
     private final BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -69,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         //crashButton();
         new FBRepository(FBNodeStructure.Risposta);
         setContentView(R.layout.activity_bottom_navigation);
+        getSupportActionBar().setLogo(R.drawable.developer);
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         navigateToFirstFragment(bottomNavigation);

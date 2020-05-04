@@ -21,7 +21,7 @@
         android:layout_width="@dimen/button_width_small"
         android:layout_height="@dimen/button_height_small"
         android:layout_gravity="center"
-        android:src="@drawable/nobackground_palla120x120"
+        android:src="@drawable/developer"
         android:contentDescription="@string/DescBtnPalla"
          />
 
@@ -38,13 +38,14 @@
 
     <TextView
         android:id="@+id/TxtDisegniDi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
         android:layout_marginBottom="-60dp"
         android:clickable="true"
         android:focusable="true"
         android:text="@string/Txt_Disegni"
+        android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="@dimen/TxtSizeMedium"
         android:textStyle="italic" />

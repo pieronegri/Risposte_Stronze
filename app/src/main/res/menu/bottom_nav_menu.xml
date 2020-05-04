@@ -4,17 +4,17 @@
 
     <item
         android:id="@+id/navigation_risposta"
-        android:icon="@drawable/nobackground_palla120x120"
+        android:icon="@drawable/ic_action_risposta"
 
         android:title="@string/TitleFragmentRisposta" />
 
     <item
         android:id="@+id/navigation_login"
-        android:icon="@drawable/ic_login"
+        android:icon="@drawable/ic_action_login"
         android:title="@string/TitleFragmentLogin" />
 
     <item
         android:id="@+id/navigation_credits"
-        android:icon="@drawable/nobackground_mano"
+        android:icon="@drawable/ic_action_credits"
         android:title="@string/TitleFragmentCredits" />
 </menu>

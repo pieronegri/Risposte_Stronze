@@ -145,8 +145,7 @@ public class Login extends BottomFragmentIMPL {
                     Utility.setCurrentUser();
                     TextView t = getView().findViewById(R.id.Txt_displayMessage);
                     t.setText(String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()));
-                    Toast.makeText(getContext(), String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()),
-                            Toast.LENGTH_SHORT).show();
+                    _toast(String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()));
                     Menu menu = getBottomNavigationView().getMenu();
                     getBottomNavigationView().setSelectedItemId(R.id.navigation_risposta);
                 }
