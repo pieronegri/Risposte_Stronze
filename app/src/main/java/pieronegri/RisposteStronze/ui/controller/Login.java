@@ -142,17 +142,16 @@ public class Login extends BottomFragmentIMPL {
                 return;
             }
             try{
-                    Utility.setCurrentUser();
-                    TextView t = getView().findViewById(R.id.Txt_displayMessage);
-                    t.setText(String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()));
-                    Toast.makeText(getContext(), String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()),
-                            Toast.LENGTH_SHORT).show();
-                    Menu menu = getBottomNavigationView().getMenu();
-                    getBottomNavigationView().setSelectedItemId(R.id.navigation_risposta);
-                }
-                catch (Exception err){
-                    err.printStackTrace();
-                }
+                 Utility.setCurrentUser();
+                 TextView t = getView().findViewById(R.id.Txt_displayMessage);
+                 t.setText(String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()));
+                _toast(String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()));
+                Menu menu = getBottomNavigationView().getMenu();
+                getBottomNavigationView().setSelectedItemId(R.id.navigation_risposta);
+             }
+            catch (Exception err){
+              err.printStackTrace();
+            }
                 // ...
             } else {
                 Log.w(TAG,"unreachable state?");
