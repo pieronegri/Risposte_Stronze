@@ -1,7 +1,8 @@
 package pieronegri.RisposteStronze.ui.controller;
 
-import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -9,7 +10,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import pieronegri.RisposteStronze.data_source.Firebase.FBNodeStructure;
@@ -21,20 +24,22 @@ import com.crashlytics.android.Crashlytics;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.multidex.BuildConfig;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigation;
-
+    private ImageButton exitButton;
     private final BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    if(exitButton!=null){
+                        exitButton.setVisibility(View.GONE);
+                    }
                     String Tag=String.valueOf(item.getItemId());
                     try {
                         if (item.getItemId() == R.id.navigation_risposta && !Utility.isUserSigned()) {
@@ -73,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         //crashButton();
         new FBRepository(FBNodeStructure.Risposta);
         setContentView(R.layout.activity_bottom_navigation);
-        getSupportActionBar().setLogo(R.drawable.developer);
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         navigateToFirstFragment(bottomNavigation);
@@ -107,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void ReplaceLastBackStackElement() throws Exception {
         String Tag=getSupportFragmentManager().getBackStackEntryAt(
-                            getSupportFragmentManager().getBackStackEntryCount() - 1)
-                    .getName();
+                getSupportFragmentManager().getBackStackEntryCount() - 1)
+                .getName();
         deBugToastBackStackCount();
         open(getSupportFragmentManager().findFragmentByTag(Tag), Tag);
     }
@@ -141,23 +145,32 @@ public class MainActivity extends AppCompatActivity {
         Utility._toast(this,message);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBackPressed(){
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            super.onBackPressed();
-        }
-        else{
-            ImageButton exitButton = new ImageButton(this);
-            exitButton.setImageResource(R.drawable.esci);
-
-            exitButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View view) {
-                    finishAffinity();
-                }
-            });
-            addContentView(exitButton, new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT));
+        super.onBackPressed();
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+            if(exitButton==null){
+                exitButton = new ImageButton(this);
+                exitButton.setImageResource(R.drawable.esci);
+                exitButton.setBackgroundColor(getResources().getColor(R.color.colorBackground));
+                exitButton.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View view) {
+                        finishAffinity();
+                    }
+                });
+            }
+            try{
+                FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT);
+                params.gravity = Gravity.CENTER;
+                exitButton.setLayoutParams(params);
+                addContentView(exitButton, params);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -170,8 +183,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         addContentView(crashButton, new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT));
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
     }
 
 }
