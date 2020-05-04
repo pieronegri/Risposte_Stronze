@@ -21,6 +21,7 @@
             android:authorities="com.facebook.app.FacebookContentProvider2589863557923893"
             android:name="com.facebook.FacebookContentProvider"
             android:exported="true"/>
+        <!--  -->
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"
