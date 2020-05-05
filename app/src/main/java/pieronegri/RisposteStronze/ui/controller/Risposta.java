@@ -64,8 +64,13 @@ public class Risposta extends BottomFragmentIMPL {
         super.onViewCreated(view, savedInstanceState);
         getModel().fetchWelcomeMessage();
         view.findViewById(R.id.Btn_getNewMessage).setOnClickListener(v -> onCLick(v));
-        view.findViewById(R.id.Btn_share).setOnClickListener(v -> onCLick(v));
+
         TextView textView = view.findViewById(R.id.Txt_displayMessage);
+        if (! ShareDialog.canShow(SharePhotoContent.class)){
+            view.findViewById(R.id.Btn_share).setVisibility(View.GONE);
+        }else{
+            view.findViewById(R.id.Btn_share).setOnClickListener(v -> onCLick(v));
+        }
         final Observer<String> WelcomeObserver = new Observer<String>() {
             @Override
             public void onChanged(@Nullable final String newMessage) {
@@ -91,7 +96,6 @@ public class Risposta extends BottomFragmentIMPL {
             }
         };
         getModel().getColorMutableLiveData().observe(getViewLifecycleOwner(), ColObserver);
-
     }
 
     private void onCLick(View v) {
@@ -104,7 +108,6 @@ public class Risposta extends BottomFragmentIMPL {
             if(v.getId()==R.id.Btn_share){
                 if ( ShareDialog.canShow(SharePhotoContent.class)) {
                     _toast(getString(R.string.Txt_PleaseWait));
-
 
                     Bitmap image = Utility.loadBitmapFromView(getView());
                     SharePhoto photo = new SharePhoto.Builder()
