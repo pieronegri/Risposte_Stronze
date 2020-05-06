@@ -6,7 +6,6 @@ import pieronegri.RisposteStronze.data_source.Node.Date;
 import pieronegri.RisposteStronze.data_source.Node.Risposta;
 import pieronegri.RisposteStronze.data_source.Node.User;
 
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,7 +58,7 @@ public class FBTransaction extends FBRepository {
     private void push(Exception e) {
         try {
             Map<String, Object> childUpdates = new HashMap<>();
-            String path="/"+String.valueOf(System.currentTimeMillis());
+            String path="/"+ System.currentTimeMillis();
             childUpdates.put(path, e.getMessage());
             getFirebaseDatabaseReference().updateChildren(childUpdates);
         } catch (Exception e1) {

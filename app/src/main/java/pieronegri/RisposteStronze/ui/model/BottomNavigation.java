@@ -1,14 +1,10 @@
 package pieronegri.RisposteStronze.ui.model;
 import androidx.lifecycle.MutableLiveData;
 
-import pieronegri.RisposteStronze.R;
 import pieronegri.RisposteStronze.data_source.Firebase.FBTransaction;
 import pieronegri.RisposteStronze.data_source.Node.Risposta;
-import pieronegri.RisposteStronze.utils.Utility;
 
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
-
-import java.util.concurrent.TimeUnit;
 
 public class BottomNavigation extends BottomNavigationUtil {
     private String RispostaTemplate = "%1$s.\n\n%2$s";

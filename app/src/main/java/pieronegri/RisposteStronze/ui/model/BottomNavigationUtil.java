@@ -32,7 +32,7 @@ class BottomNavigationUtil extends ViewModel {
 
     static MutableLiveData<String> getMutable(MutableLiveData<String> mutable){
         if(mutable==null)
-            mutable=new MutableLiveData<String>();
+            mutable= new MutableLiveData<>();
         return mutable;
     }
     void setDataSnapshot() {

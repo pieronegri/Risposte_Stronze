@@ -3,7 +3,6 @@ package pieronegri.RisposteStronze.ui.controller;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -12,8 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import pieronegri.RisposteStronze.data_source.Firebase.FBNodeStructure;
 import pieronegri.RisposteStronze.data_source.Firebase.FBRepository;
@@ -176,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void crashButton(){
         Button crashButton = new Button(this);
-        crashButton.setText("Crash!");
+        crashButton.setText("---");
         crashButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Crashlytics.getInstance().crash(); // Force a crash

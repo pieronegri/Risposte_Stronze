@@ -20,7 +20,8 @@
         <provider
             android:authorities="com.facebook.app.FacebookContentProvider2589863557923893"
             android:name="com.facebook.FacebookContentProvider"
-            android:exported="true"/>
+            android:exported="true"
+            tools:ignore="ExportedContentProvider" />
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"
@@ -38,7 +39,8 @@
         <meta-data
             android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
             android:value="com.google.firebase.components.ComponentRegistrar" />
-        <service android:name="pieronegri.RisposteStronze.service.FBMessagingServiceIMPL">
+        <service android:name="pieronegri.RisposteStronze.service.FBMessagingServiceIMPL"
+            tools:ignore="ExportedService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

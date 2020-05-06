@@ -1,8 +1,6 @@
 package pieronegri.RisposteStronze.ui.controller;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 

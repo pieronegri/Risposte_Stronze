@@ -8,13 +8,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import pieronegri.RisposteStronze.utils.Utility;
 import pieronegri.RisposteStronze.R;

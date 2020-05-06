@@ -7,7 +7,6 @@ import android.os.Bundle;
 
 
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -20,8 +19,6 @@ import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
 
 import org.jetbrains.annotations.NotNull;
-
-import java.util.concurrent.TimeUnit;
 
 import pieronegri.RisposteStronze.R;
 import pieronegri.RisposteStronze.data_source.Firebase.FBTransaction;
@@ -100,7 +97,7 @@ public class Risposta extends BottomFragmentIMPL {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        ProgressBar p=(ProgressBar) getActivity().findViewById(R.id.ProgressBar_cyclic);
+        ProgressBar p= getActivity().findViewById(R.id.ProgressBar_cyclic);
         p.setVisibility(View.INVISIBLE);
     }
 
@@ -113,7 +110,7 @@ public class Risposta extends BottomFragmentIMPL {
             }
             if(v.getId()==R.id.Btn_share){
                 if ( ShareDialog.canShow(SharePhotoContent.class)) {
-                    ProgressBar p=(ProgressBar) getActivity().findViewById(R.id.ProgressBar_cyclic);
+                    ProgressBar p= getActivity().findViewById(R.id.ProgressBar_cyclic);
                     p.setVisibility(View.VISIBLE);
                     Bitmap image = Utility.loadBitmapFromView(getView());
                     SharePhoto photo = new SharePhoto.Builder()

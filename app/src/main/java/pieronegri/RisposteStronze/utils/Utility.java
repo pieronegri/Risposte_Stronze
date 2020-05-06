@@ -3,8 +3,6 @@ package pieronegri.RisposteStronze.utils;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -80,16 +78,13 @@ public class Utility {
     }
 
     public static Boolean isUserSigned() {
-        if(FirebaseAuth.getInstance().getCurrentUser()==null) {
-            return false;
-        }
-        return true;
+        return FirebaseAuth.getInstance().getCurrentUser() != null;
     }
 
     public static void _toast(Context ctx, String message) {
         Toast toast = Toast.makeText(ctx, message, Toast.LENGTH_SHORT);
         View view = toast.getView();
-        TextView text = (TextView) view.findViewById(android.R.id.message);
+        TextView text = view.findViewById(android.R.id.message);
         text.setTextColor(ctx.getResources().getColor(R.color.colorText));
         toast.show();
     }
