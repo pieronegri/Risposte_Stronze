@@ -8,6 +8,8 @@ import pieronegri.RisposteStronze.utils.Utility;
 
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 
+import java.util.concurrent.TimeUnit;
+
 public class BottomNavigation extends BottomNavigationUtil {
     private String RispostaTemplate = "%1$s.\n\n%2$s";
     private Integer currentNavigationId = null;

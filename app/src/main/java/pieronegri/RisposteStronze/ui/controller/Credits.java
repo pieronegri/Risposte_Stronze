@@ -45,16 +45,23 @@ public class Credits extends BottomFragmentIMPL {
 
     private void onClick(View view) {
         String url;
-        switch (view.getId()) {
-            case R.id.Btn_OrderForm:
-                openUrl(getString(R.string.UrlOrder));
-                break;
-            case R.id.Btn_FBPageLibro:
-                openUrl(getOpenFacebookUrl(getString(R.string.UrlFBPageId)));
-                break;
-            case R.id.TxtDisegniDi:
-                openUrl(getOpenFacebookUrl(getString(R.string.UrlFBPageLiseFischerId)));
-                break;
+        try {
+            _toast(getString(R.string.Txt_PleaseWait));
+            switch (view.getId()) {
+                case R.id.Btn_OrderForm:
+                    openUrl(getString(R.string.UrlOrder));
+                    break;
+                case R.id.Btn_FBPageLibro:
+                    openUrl(getOpenFacebookUrl(getString(R.string.UrlFBPageId)));
+                    break;
+                case R.id.TxtDisegniDi:
+                    openUrl(getOpenFacebookUrl(getString(R.string.UrlFBPageLiseFischerId)));
+                    break;
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            _toast(getString(R.string.Txt_PleaseTryAgain));
         }
     }
 

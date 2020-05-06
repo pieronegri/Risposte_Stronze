@@ -134,7 +134,7 @@ public class Login extends BottomFragmentIMPL {
             IdpResponse response = IdpResponse.fromResultIntent(data);
             if(resultCode != Activity.RESULT_OK) {
                 try {
-                    _toast(getString(R.string.logInError));
+                    _toast(getString(R.string.Txt_PleaseTryAgain));
                     response.getError().printStackTrace();
                 } catch (Exception e) {
                     e.printStackTrace();
