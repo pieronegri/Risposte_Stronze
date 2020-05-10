@@ -7,8 +7,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class FBRepository/*<Model>*/ {
 
-    private DatabaseReference databaseReference;
-    private FBRepositoryCallBack/*<Model>*/ firebaseCallback;
+    //private DatabaseReference databaseReference;
+    //private FBRepositoryCallBack/*<Model>*/ firebaseCallback;
 
 
     private String TAG = FBRepository.class.getName();
@@ -20,66 +20,36 @@ public class FBRepository/*<Model>*/ {
     }
 
     public FBRepository(@NotNull String rootNode, Boolean enabled, Boolean synced) {
-       Build(rootNode,enabled,enabled);
+       Build(rootNode,enabled,synced);
     }
 
     public FBRepository(@NotNull String rootNode) {
         Build(rootNode,true,true);
     }
-    public void Build(@NotNull String rootNode, Boolean enabled, Boolean synced) {
-        setRootNode(rootNode);
+    private void Build(@NotNull String rootNode, Boolean enabled, Boolean synced) {
+        this.rootNode = rootNode;
         try {
-            setPersistenceEnabled(true);
-            setKeepSynced(rootNode, true);
+            FirebaseDatabase.getInstance().setPersistenceEnabled(enabled);
+            FirebaseDatabase.getInstance().getReference().child(rootNode).keepSynced(synced);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        setFirebaseDatabaseReference();
+        getFirebaseDatabaseReference();
     }
 
     public void clear(){
-        databaseReference.removeEventListener(listener);
-        this.firebaseCallback = null;
+        getFirebaseDatabaseReference().removeEventListener(listener);
+        //this.firebaseCallback = null;
         this.listener=null;
     }
     public void addListener(FBRepositoryCallBack/*<Model>*/ firebaseCallback) {
-        this.firebaseCallback = firebaseCallback;
+        //this.firebaseCallback = firebaseCallback;
         this.listener = new FBEventListener/*<Model>*/(firebaseCallback);
-        databaseReference.addValueEventListener(listener);
-    }
-
-    public void removeListener() {
-        databaseReference.removeEventListener(listener);
-    }
-
-    public void setFirebaseDatabaseReference() {
-        this.databaseReference = FirebaseDatabase.getInstance().getReference(getRootNode());
-    }
-
-    /*public void setMapper(FbMapper mapper){
-        this.mapper=mapper;
-    }*/
-
-    public void setPersistenceEnabled(boolean enabled) {
-        FirebaseDatabase.getInstance().setPersistenceEnabled(enabled);
-    }
-
-    public void setKeepSynced(String node, boolean synced) {
-        FirebaseDatabase.getInstance().getReference().child(node).keepSynced(synced);
-    }
-
-    @NotNull
-    public String getRootNode() {
-        return rootNode;
-    }
-
-    public void setRootNode(String node) {
-        this.rootNode = node;
+        getFirebaseDatabaseReference().addValueEventListener(listener);
     }
 
     @NotNull
     public DatabaseReference getFirebaseDatabaseReference() {
-        return FirebaseDatabase.getInstance().getReference(getRootNode());
+        return FirebaseDatabase.getInstance().getReference(rootNode);
     }
-
 }

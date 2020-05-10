@@ -30,7 +30,7 @@ public class FBMessagingServiceUtil  {
         FBRepository rep = new FBRepository(FBNodeStructure.FCMClientToken);
         String id;
         try{
-            rep.getFirebaseDatabaseReference().child(Utility.getCurrentUser().getDisplayName())
+            rep.getFirebaseDatabaseReference().child(Utility.getCurrentUser().getUid())
                     .setValue(token);
         }
         catch (Exception e){

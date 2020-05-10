@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
-import android.view.Menu;
 
 import android.view.View;
 import android.widget.ImageButton;
@@ -20,12 +19,14 @@ import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -107,15 +108,16 @@ public class Login extends BottomFragmentIMPL {
         }
 
         try{
+            Utility.signOut();
             AuthUI.getInstance()
-                    .signOut(getActivity())
+                    .signOut(Objects.requireNonNull(getContext()))
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         public void onComplete(@NonNull Task<Void> task) {
-                            // ...
+                            // user is now signed out
+                            _toast(getString(R.string.logOutOKMessage));
+                            t.setText(getString(R.string.logOutOKMessage));
                         }
                     });
-            Log.w(TAG,getString(R.string.logOutOKMessage));
-            _toast(getString(R.string.logOutOKMessage));
         }
         catch(Exception e){
             e.printStackTrace();
@@ -140,11 +142,10 @@ public class Login extends BottomFragmentIMPL {
                 return;
             }
             try{
-                 Utility.setCurrentUser();
-                 TextView t = getView().findViewById(R.id.Txt_displayMessage);
-                 t.setText(String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()));
+                Utility.SetOnLinePresence();
+                TextView t = getView().findViewById(R.id.Txt_displayMessage);
+                t.setText(String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()));
                 _toast(String.format(currentSingIn, Utility.getCurrentUser().getDisplayName()));
-                Menu menu = getBottomNavigationView().getMenu();
                 getBottomNavigationView().setSelectedItemId(R.id.navigation_risposta);
              }
             catch (Exception err){

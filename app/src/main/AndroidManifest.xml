@@ -49,7 +49,7 @@
                 android:value="@string/default_notification_channel_id"/>
             <meta-data
                 android:name="com.google.firebase.messaging.default_notification_icon"
-                android:resource="@drawable/nobackground_palla200x200" />
+                android:resource="@drawable/ic_action_risposta" />
             <meta-data
                 android:name="com.google.firebase.messaging.default_notification_color"
                 android:resource="@color/colorWhite" />

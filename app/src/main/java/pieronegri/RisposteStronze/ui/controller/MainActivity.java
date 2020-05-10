@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //crashButton();
         new FBRepository(FBNodeStructure.Risposta);
+        Utility.SetOnLinePresence();
         setContentView(R.layout.activity_bottom_navigation);
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
@@ -85,8 +86,9 @@ public class MainActivity extends AppCompatActivity {
             ReplaceLastBackStackElement();
         }
         catch (Exception e){
-            if(Utility.isUserSigned())
+            if(Utility.isUserSigned()) {
                 bottomNavigation.setSelectedItemId(R.id.navigation_risposta);
+            }
             else
                 bottomNavigation.setSelectedItemId(R.id.navigation_login);
         }
@@ -101,9 +103,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.toolbarActionEsci) {
-            finishAffinity();
+            Goodbye();
         }
         return true;
+    }
+    private void Goodbye(){
+        finishAffinity();
     }
 
     private void ReplaceLastBackStackElement() throws Exception {
@@ -153,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                 exitButton.setBackgroundColor(getResources().getColor(R.color.colorBackground));
                 exitButton.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View view) {
-                        finishAffinity();
+                        Goodbye();
                     }
                 });
             }

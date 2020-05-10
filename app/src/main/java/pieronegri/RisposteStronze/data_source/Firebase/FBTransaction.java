@@ -36,9 +36,6 @@ public class FBTransaction extends FBRepository {
         updateObject.put("DateValue", this.Date.getValue());
         updateObject.put("RispostaValue", this.Risposta.getValue());
         updateObject.put("RispostaName", this.Risposta.getName());
-        updateObject.put("UserValue", this.User.getValue());
-        updateObject.put("UserName", this.User.getName());
-        updateObject.put("UserEmail", this.User.getEmail());
     }
 
     public void push() {
@@ -46,9 +43,8 @@ public class FBTransaction extends FBRepository {
             Map<String, Object> childUpdates = new HashMap<>();
             childUpdates.put(Date.getPath(), this.updateObject);
             childUpdates.put(Risposta.getPath(), this.updateObject);
-            childUpdates.put(User.getPath(), this.updateObject);
             getFirebaseDatabaseReference().updateChildren(childUpdates);
-            String message = String.format("%1$s %2$s %3$s", User.getDisplayName(), Risposta.getName(), this.Risposta.getValue());
+            String message = String.format("%1$s %2$s", Risposta.getName(), this.Risposta.getValue());
             Log.w(TAG, message);
         } catch (Exception e) {
             e.printStackTrace();

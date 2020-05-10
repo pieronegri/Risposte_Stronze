@@ -7,6 +7,7 @@ public class FBNodeStructure {
     public static final String Date = "date";
     public static final String LastActiveOn = "lastActiveOn";
     public static final String Presence = "presence";
+    public static final String OnLine = "online";
     public static final String FCMClientToken="token";
     public static final String Error="error";
 }
