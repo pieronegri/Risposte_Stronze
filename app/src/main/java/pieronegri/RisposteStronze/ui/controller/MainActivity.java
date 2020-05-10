@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
     private void Goodbye(){
+        Utility.goOffLine();
         finishAffinity();
     }
 

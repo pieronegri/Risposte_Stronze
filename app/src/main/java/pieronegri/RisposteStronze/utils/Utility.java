@@ -62,7 +62,7 @@ public class Utility {
         }
     }
 
-    public static void signOut() {
+    public static void goOffLine() {
         try{
             DBPresence.goOffLine();
         } catch (Exception e) {

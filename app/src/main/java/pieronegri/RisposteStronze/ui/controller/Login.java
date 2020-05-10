@@ -19,7 +19,6 @@ import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 
 
 import org.jetbrains.annotations.NotNull;
@@ -108,7 +107,7 @@ public class Login extends BottomFragmentIMPL {
         }
 
         try{
-            Utility.signOut();
+            Utility.goOffLine();
             AuthUI.getInstance()
                     .signOut(Objects.requireNonNull(getContext()))
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
