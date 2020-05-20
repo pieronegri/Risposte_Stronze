@@ -14,14 +14,14 @@
         android:src="@drawable/ordina"
         android:contentDescription="@string/DescBtnOrder"
         />
-     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="@dimen/button_width_small"
-        android:layout_height="@dimen/button_height_small"
-        android:layout_gravity="center"
-        android:src="@drawable/developer"
-        android:contentDescription="@string/DescBtnPalla"
-         />
+
+    <ImageView
+       android:id="@+id/imageView2"
+       android:layout_width="@dimen/button_width_small"
+       android:layout_height="@dimen/button_height_small"
+       android:layout_gravity="center"
+       android:contentDescription="@string/DescBtnPalla"
+       android:src="@drawable/developer" />
 
     <ImageButton
         android:id="@+id/Btn_FBPageLibro"

@@ -25,6 +25,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.multidex.BuildConfig;
 
 public class MainActivity extends AppCompatActivity {
@@ -100,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.appbar_menu, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.toolbarActionEsci) {

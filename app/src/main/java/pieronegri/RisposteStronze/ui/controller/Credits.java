@@ -39,6 +39,7 @@ public class Credits extends BottomFragmentIMPL {
         view.findViewById(R.id.Btn_FBPageLibro).setOnClickListener(v -> onClick(v));
         view.findViewById(R.id.Btn_OrderForm).setOnClickListener(v -> onClick(v));
         view.findViewById(R.id.TxtDisegniDi).setOnClickListener(v -> onClick(v));
+
     }
 
     private void onClick(View view) {
