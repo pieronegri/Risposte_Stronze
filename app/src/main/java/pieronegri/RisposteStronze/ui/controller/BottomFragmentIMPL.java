@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 import pieronegri.RisposteStronze.R;
-import pieronegri.RisposteStronze.ui.model.BottomNavigation;
+import pieronegri.RisposteStronze.ui.model.Model;
 import pieronegri.RisposteStronze.utils.Utility;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -23,7 +23,7 @@ class BottomFragmentIMPL extends BottomFragmentABS {
     private Integer navigationMenuItemId;
     private static BottomNavigationView bottomNavigationView = null;
     private Integer layoutId = null;
-    private BottomNavigation model=null;
+    protected Model model=null;
 
     public BottomFragmentIMPL() {
     }
@@ -41,26 +41,18 @@ class BottomFragmentIMPL extends BottomFragmentABS {
         }
         return bottomNavigationView;
     }
-    BottomNavigation getModel(){
-        return model;
-    }
+
 
     @Override
     public void onAttach(@NotNull Context ctx){
         super.onAttach(ctx);
-
-        if(getModel()==null) {
-            setModel();
-        }
+        model=Model.GetInstance();
         setBottomNavigationView();
     }
     private void setBottomNavigationView(){
         bottomNavigationView = requireActivity().findViewById(bottomNavigationId);
     }
 
-    private void setModel(){
-        model = new ViewModelProvider(requireActivity()).get(BottomNavigation.class);
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

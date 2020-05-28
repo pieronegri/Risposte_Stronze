@@ -14,7 +14,7 @@ import com.google.firebase.messaging.FirebaseMessagingService;
         import com.google.firebase.messaging.RemoteMessage;
 
 import pieronegri.RisposteStronze.R;
-        import pieronegri.RisposteStronze.ui.model.BottomNavigation;
+        import pieronegri.RisposteStronze.ui.model.Model;
 import pieronegri.RisposteStronze.utils.FBMessagingServiceUtil;
 
 public class FBMessagingServiceIMPL extends FirebaseMessagingService {
@@ -28,7 +28,7 @@ public class FBMessagingServiceIMPL extends FirebaseMessagingService {
         sendNotification(remoteMessage.getNotification());
     }
     private void sendNotification(RemoteMessage.Notification notification) {
-    Intent intent = new Intent(this, BottomNavigation.class);
+    Intent intent = new Intent(this, Model.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 , intent,
                         PendingIntent.FLAG_ONE_SHOT);

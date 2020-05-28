@@ -40,7 +40,7 @@
         android:indeterminate="true"
         android:visibility="invisible"/>
     <ImageButton
-        android:id="@+id/Btn_getNewMessage"
+        android:id="@+id/Btn_getRandomMessage"
         android:layout_width="@dimen/button_height_large"
         android:layout_height="@dimen/button_width_large"
         android:background="@drawable/nobackground_palla200x200"

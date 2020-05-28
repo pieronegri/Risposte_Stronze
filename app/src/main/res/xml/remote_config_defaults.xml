@@ -17,5 +17,9 @@
         <key>colorText</key>
         <value>#FFFFFF</value>
     </entry>
+    <entry>
+        <key>webappLink</key>
+        <value>https://us-central1-rispostestr.cloudfunctions.net/webapp?rispostaId=</value>
+    </entry>
 </defaultsMap>
     <!-- END xml_defaults -->
