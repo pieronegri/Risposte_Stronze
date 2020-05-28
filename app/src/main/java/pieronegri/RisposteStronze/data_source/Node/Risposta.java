@@ -26,6 +26,21 @@ public class Risposta extends NodeAbs<String, String> {
         setPath();
     }
 
+    public Risposta(int name, @NotNull DataSnapshot ds) throws Exception {
+        super();
+        if (ds.getChildrenCount() < 1) {
+            throw new Exception("DataSnapshot can not be null or with no nodes");
+        }
+        setRootNode();
+        setDatasnapshot(ds);
+        setCount();
+        if(name<=0 || name>getIntCount()) {
+            throw new ArrayIndexOutOfBoundsException("rispostaId can not be "+name);
+        }
+        setName(Integer.toString(name));
+        setValue();
+        setPath();
+    }
     public Risposta(@NotNull DataSnapshot ds) throws Exception {
         super();
         if (ds.getChildrenCount() < 1) {
@@ -51,6 +66,7 @@ public class Risposta extends NodeAbs<String, String> {
     public void setPath() {
         Path = String.format(temp3s, getRootNode(), getName(), getTimeStamp());
     }
+
 
     public void setName() {
         Random rand = new Random();
@@ -79,7 +95,10 @@ public class Risposta extends NodeAbs<String, String> {
     }
 
     public String getName() {
-        return Name;
+        if(Name!=null)
+            return Name;
+        else
+            return "0";
     }
 
 }

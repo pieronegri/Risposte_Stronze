@@ -31,6 +31,7 @@ public class FBTransaction extends FBRepository {
         setUpdateObject();
     }
 
+
     private void setUpdateObject() {
         updateObject.put("DateName", String.valueOf(this.Date.getName()));
         updateObject.put("DateValue", this.Date.getValue());

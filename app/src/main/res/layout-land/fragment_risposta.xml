@@ -32,7 +32,7 @@
         android:textSize="@dimen/TxtSizeVeryBig"/>
 
     <ImageButton
-        android:id="@+id/Btn_getNewMessage"
+        android:id="@+id/Btn_getRandomMessage"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_gravity="center|start"
